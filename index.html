@@ -5,81 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arina Tsirkuleva | Researcher</title>
     <style>
-        :root { --primary: #002b5b; --accent: #d4af37; --bg: #fdfdfd; }
-        body { font-family: 'Georgia', serif; line-height: 1.6; color: #333; margin: 0; background: var(--bg); }
+        :root { --navy: #1a2a6c; --gold: #fdbb2d; --light: #f8f9fa; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; background: #fff; }
         
-        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
+        header { background: linear-gradient(135deg, var(--navy), #2a4858); color: white; padding: 80px 20px; text-align: center; }
+        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
         
-        /* Profile Section */
-        .profile-header { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; }
-        .profile-pic { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); }
+        .profile-section { display: flex; align-items: center; gap: 40px; margin-top: -50px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
-        /* Project Cards */
-        .project-card { 
-            background: white; border: 1px solid #eee; padding: 20px; 
-            margin-bottom: 20px; cursor: pointer; transition: 0.3s; 
-            border-left: 5px solid var(--primary);
-        }
-        .project-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left-color: var(--accent); }
-        
-        /* Modal / Pop-up Styling */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
-        .modal-content { background: white; margin: 10% auto; padding: 30px; width: 80%; max-width: 600px; border-radius: 10px; position: relative; }
-        .close { position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; }
+        h2 { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; margin-top: 50px; }
 
-        .tag { background: #eee; padding: 3px 10px; border-radius: 5px; font-size: 0.8em; margin-right: 5px; font-family: sans-serif; }
+        /* Project Grid */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        .project-card { 
+            background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; 
+            transition: 0.3s; cursor: pointer; position: relative;
+        }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--gold); }
+        .project-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #eee; }
+        .project-info { padding: 20px; }
+        .project-info h3 { margin: 0 0 10px 0; color: var(--navy); }
+
+        /* Modal (Pop-up) */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); overflow-y: auto; }
+        .modal-content { background: white; margin: 5% auto; padding: 40px; width: 90%; max-width: 700px; border-radius: 15px; position: relative; line-height: 1.8; }
+        .modal-content img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 35px; cursor: pointer; color: #999; }
+        .close:hover { color: var(--navy); }
+
+        footer { text-align: center; padding: 40px; background: var(--navy); color: white; margin-top: 80px; }
     </style>
 </head>
 <body>
 
+<header>
+    <h1>Arina Tsirkuleva</h1>
+    <p>Post-doctoral Researcher | Computational Text Analysis | NLP</p>
+</header>
+
 <div class="container">
-    <section class="profile-header">
-        <img src="profile.jpg" alt="Arina Tsirkuleva" class="profile-pic">
+    <section class="profile-section">
+        <img src="profile.jpg" alt="Arina" class="profile-pic">
         <div>
-            <h1>Arina Tsirkuleva</h1>
-            <p><strong>Post-doctoral Researcher</strong> | Computational Text Analysis</p>
+            <p>Curiosity drives my work as a researcher. I enjoy uncovering unexpected data sources and turning them into fresh insights. My goal is to transform these findings into meaningful stories that help us better understand the world.</p>
+            <p>Language is at the heart of my passion — it tells powerful stories about how we connect and interact. With NLP evolving at lightning speed, I’m always learning and experimenting. Explore my projects and see where curiosity has taken me.</p>
         </div>
     </section>
 
-    <h2>About</h2>
-    <p>I'm a researcher and I like discovering new things. I look for interesting sources of data and explore creative ways to get insights from these inputs. My biggest passion is language, and I firmly believe it can shed light on how social interactions evolve. Fascinated by the advancements of NLP in the last decade, I try to keep up with the pace.</p>
+    <h2>Research Projects</h2>
+    <div class="project-grid">
+        
+        <div class="project-card" onclick="openModal('m1')">
+            <img src="project1.jpg" alt="ECB Project" class="project-img">
+            <div class="project-info">
+                <h3>Performative language of the ECB</h3>
+                <p>How the "doing by saying" effect influences monetary authority and global finance.</p>
+            </div>
+        </div>
 
-    <h2>Projects (Click to expand)</h2>
+        <div class="project-card" onclick="openModal('m2')">
+            <img src="project2.jpg" alt="Communication Blocks" class="project-img">
+            <div class="project-info">
+                <h3>Building blocks of communication</h3>
+                <p>Applying topic modeling to annual reports (1999-2020) to track priority shifts.</p>
+            </div>
+        </div>
 
-    <div class="project-card" onclick="openModal('p1')">
+        <div class="project-card" onclick="alert('Waiting for your text to fill this!')">
+            <div class="project-info"><h3>Project 3</h3><p>Content coming soon...</p></div>
+        </div>
+        <div class="project-card" onclick="alert('Waiting for your text to fill this!')">
+            <div class="project-info"><h3>Project 4</h3><p>Content coming soon...</p></div>
+        </div>
+        <div class="project-card" onclick="alert('Waiting for your text to fill this!')">
+            <div class="project-info"><h3>Project 5</h3><p>Content coming soon...</p></div>
+        </div>
+
+    </div>
+</div>
+
+<div id="m1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('m1')">&times;</span>
+        <img src="project1.jpg" alt="ECB Project">
         <h3>Performative language of the ECB</h3>
-        <p>How performative is the language of the ECB? Through language, we not only describe the world around us but influence it as well...</p>
+        <p>Through language, we not only describe the world around us but influence it as well ('doing by saying' in John Austin's words). The best illustration of language performativity is the effect of the pledge to do “whatever it takes” by ECB President Mario Draghi in 2012.</p>
+        <p>To understand the empowerment of the ECB across the years, I focus on the performativity of its communication from 1999 to 2021, namely on the modality of the executives' utterances.</p>
     </div>
+</div>
 
-    <div class="project-card" onclick="openModal('p2')">
+<div id="m2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('m2')">&times;</span>
+        <img src="project2.jpg" alt="Communication Project">
         <h3>Building blocks of central banks' communication</h3>
-        <p>How does the communication of European central banks evolve? To what issues do they pay attention? All together and individually?</p>
+        <p>How does the communication of European central banks evolve? To what issues do they pay attention? All together and individually? I explore the building blocks of central banks' communication by applying topic modeling to the corpus of their annual report from 1999 to 2020.</p>
     </div>
-
-    <div id="p1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('p1')">&times;</span>
-            <h3>Performative language of the ECB</h3>
-            <p>Through language, we not only describe the world around us but influence it as well ('doing by saying' in John Austin's words). The best illustration of language performativity is the effect of the pledge to do “whatever it takes” by ECB President Mario Draghi in 2012.</p>
-            <p>To understand the empowerment of the ECB across the years, I focus on the performativity of its communication from 1999 to 2021, namely on the modality of the executives' utterances.</p>
-        </div>
-    </div>
-
-    <div id="p2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('p2')">&times;</span>
-            <h3>Building blocks of central banks' communication</h3>
-            <p>How does the communication of European central banks evolve? To what issues do they pay attention? All together and individually? I explore the building blocks of central banks' communication by applying topic modeling to the corpus of their annual report from 1999 to 2020.</p>
-        </div>
-    </div>
-
 </div>
 
 <script>
     function openModal(id) { document.getElementById(id).style.display = "block"; }
     function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    // Close modal if user clicks background
     window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
 </script>
+
+<footer>
+    <p>&copy; 2026 Arina Tsirkuleva | arinatsirkuleva.com</p>
+</footer>
 
 </body>
 </html>
