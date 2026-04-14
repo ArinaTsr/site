@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arina Tsirkuleva | Researcher & NLP</title>
+    <style>
+        :root { --navy: #1a2a6c; --blue: #b21f1f; --gold: #fdbb2d; --bg: #ffffff; --text: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: #fdfdfd; }
+        
+        /* Navigation */
+        nav { background: #fff; padding: 20px; position: sticky; top: 0; border-bottom: 1px solid #eee; text-align: center; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--navy); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, #1a2a6c, #2a4858); color: white; padding: 120px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 3rem; letter-spacing: 2px; }
+        header p { font-size: 1.2rem; opacity: 0.9; font-weight: 300; }
+
+        .container { max-width: 1000px; margin: auto; padding: 60px 20px; }
+        
+        /* Sections */
+        section { margin-bottom: 80px; }
+        h2 { color: var(--navy); font-size: 1.8rem; border-left: 5px solid var(--gold); padding-left: 15px; margin-bottom: 30px; }
+
+        /* Project Grid */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .project-card { background: white; border: 1px solid #eee; padding: 25px; border-radius: 12px; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .project-card h3 { margin-top: 0; color: var(--navy); font-size: 1.2rem; }
+        
+        /* Skills */
+        .skills-box { background: var(--navy); color: white; padding: 40px; border-radius: 15px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .skill-tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem; transition: 0.3s; }
+        .skill-tag:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+
+        footer { text-align: center; padding: 60px; background: #111; color: #777; font-size: 0.9rem; }
+        a { color: var(--blue); text-decoration: none; transition: 0.3s; }
+        a:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#about">Bio</a>
+    <a href="#projects">Research Projects</a>
+    <a href="#skills">Tech Stack</a>
+    <a href="#contact">Connect</a>
+</nav>
+
+<header>
+    <h1>Arina Tsirkuleva</h1>
+    <p>Post-doctoral Researcher | Computational Text Analysis | NLP</p>
+</header>
+
+<div class="container">
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a Post-doctoral Researcher specializing in the evolution of corporate and managerial communication. By applying <strong>Natural Language Processing (NLP)</strong> and computational analysis, I investigate how the "performativity" of language influences monetary policy and industrial digitization in Europe.</p>
+        <p>Currently a Research Fellow at <strong>Luiss Business School</strong>, I hold a PhD from <strong>Ca’ Foscari University of Venice</strong>. My background bridges the gap between deep Linguistics and modern Data Science.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Research Portfolio</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Performative Language of the ECB</h3>
+                <p>Analyzing the "doing by saying" effect in monetary authority. I focus on executive utterances from 1999–2021 to understand the empowerment of the ECB through language.</p>
+            </div>
+            <div class="project-card">
+                <h3>Global Network of Central Bankers</h3>
+                <p>Extraction of mentioned entities in communication (2007–2021) to map the interaction patterns and co-influence within global financial leadership.</p>
+            </div>
+            <div class="project-card">
+                <h3>Building Blocks of Communication</h3>
+                <p>Applying Topic Modeling (LDA) to a vast corpus of annual reports (1999–2020) to track the evolution of priorities across European central banks.</p>
+            </div>
+            <div class="project-card">
+                <h3>Mobile Banking Customer Experience</h3>
+                <p>Sentiment analysis and text mining of customer reviews (2010–2022) to identify critical appreciation factors for European banking apps.</p>
+            </div>
+            <div class="project-card">
+                <h3>ECB vs. National Banks Distance</h3>
+                <p>Measuring the communicative "proximity" between the supranational authority (ECB) and national central banks within the common monetary framework.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Arsenal</h2>
+        <div class="skills-box">
+            <span class="skill-tag">Python (NLTK, spaCy, Gensim)</span>
+            <span class="skill-tag">Pandas & NumPy</span>
+            <span class="skill-tag">Topic Modeling (LDA)</span>
+            <span class="skill-tag">NetworkX & Gephi</span>
+            <span class="skill-tag">Web Scraping (BeautifulSoup)</span>
+            <span class="skill-tag">Tableau Data Viz</span>
+            <span class="skill-tag">Scikit-learn</span>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <h2>Contact</h2>
+        <p>Based in Rome / Milan, Italy</p>
+        <p><strong>Email:</strong> <a href="mailto:atsirkuleva@luiss.it">atsirkuleva@luiss.it</a></p>
+        <p>
+            <a href="https://www.linkedin.com/in/arinatsirkuleva/" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com" target="_blank">GitHub</a>
+        </p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Arina Tsirkuleva. Dedicated Professional Domain Hosting.</p>
+</footer>
+
+</body>
+</html>
