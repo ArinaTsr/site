@@ -5,81 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arina Tsirkuleva | Researcher</title>
     <style>
-        :root { --navy: #1a2a6c; --gold: #fdbb2d; --light: #f8f9fa; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; background: #fff; }
+        :root { --navy: #1a2a6c; --gold: #fdbb2d; --bg: #ffffff; --text: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: #fdfdfd; }
         
-        header { background: linear-gradient(135deg, var(--navy), #2a4858); color: white; padding: 80px 20px; text-align: center; }
+        header { background: linear-gradient(135deg, #1a2a6c, #2a4858); color: white; padding: 100px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 3rem; letter-spacing: 2px; }
+        
         .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
         
-        .profile-section { display: flex; align-items: center; gap: 40px; margin-top: -50px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        /* About Section */
+        .profile-section { display: flex; align-items: center; gap: 40px; margin-top: -60px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         .profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        
-        h2 { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; margin-top: 50px; }
+        .about-text { flex: 1; }
+        .about-text p { margin-bottom: 15px; font-size: 1.1rem; }
+
+        h2 { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; margin: 60px 0 30px; font-size: 2rem; }
 
         /* Project Grid */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .project-card { 
             background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; 
-            transition: 0.3s; cursor: pointer; position: relative;
+            transition: 0.3s cubic-bezier(.25,.8,.25,1); cursor: pointer; position: relative;
         }
-        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--gold); }
-        .project-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #eee; }
-        .project-info { padding: 20px; }
-        .project-info h3 { margin: 0 0 10px 0; color: var(--navy); }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--gold); }
+        .project-img { width: 100%; height: 220px; object-fit: cover; }
+        .project-info { padding: 25px; }
+        .project-info h3 { margin: 0 0 10px 0; color: var(--navy); font-size: 1.25rem; }
+        .project-info p { font-size: 0.95rem; color: #666; margin-bottom: 10px; }
 
-        /* Modal (Pop-up) */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); overflow-y: auto; }
-        .modal-content { background: white; margin: 5% auto; padding: 40px; width: 90%; max-width: 700px; border-radius: 15px; position: relative; line-height: 1.8; }
-        .modal-content img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; }
-        .close { position: absolute; right: 25px; top: 15px; font-size: 35px; cursor: pointer; color: #999; }
+        /* Modal (Pop-up) Styles */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; padding-top: 50px; }
+        .modal-content { background: white; margin: auto; padding: 40px; width: 90%; max-width: 800px; border-radius: 20px; position: relative; animation: slideUp 0.4s ease; }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-header-img { width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin-bottom: 25px; }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 40px; cursor: pointer; color: #aaa; transition: 0.3s; }
         .close:hover { color: var(--navy); }
+        .modal-body { font-size: 1.1rem; line-height: 1.8; color: #444; }
 
-        footer { text-align: center; padding: 40px; background: var(--navy); color: white; margin-top: 80px; }
+        footer { text-align: center; padding: 60px; background: #111; color: #777; margin-top: 100px; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Arina Tsirkuleva</h1>
-    <p>Post-doctoral Researcher | Computational Text Analysis | NLP</p>
 </header>
 
 <div class="container">
     <section class="profile-section">
-        <img src="profile.jpg" alt="Arina" class="profile-pic">
-        <div>
+        <img src="profile.jpg" alt="Arina Tsirkuleva" class="profile-pic">
+        <div class="about-text">
             <p>Curiosity drives my work as a researcher. I enjoy uncovering unexpected data sources and turning them into fresh insights. My goal is to transform these findings into meaningful stories that help us better understand the world.</p>
             <p>Language is at the heart of my passion — it tells powerful stories about how we connect and interact. With NLP evolving at lightning speed, I’m always learning and experimenting. Explore my projects and see where curiosity has taken me.</p>
         </div>
     </section>
 
-    <h2>Research Projects</h2>
+    <h2>Projects</h2>
     <div class="project-grid">
         
         <div class="project-card" onclick="openModal('m1')">
-            <img src="project1.jpg" alt="ECB Project" class="project-img">
+            <img src="project1.jpg" alt="Mobile Banking" class="project-img">
             <div class="project-info">
-                <h3>Performative language of the ECB</h3>
-                <p>How the "doing by saying" effect influences monetary authority and global finance.</p>
+                <h3>Customer experience with mobile banking apps</h3>
+                <p>Which elements of the mobile banking app are critical from a customer perspective? I explore customers' reviews to understand their experience with mobile apps.</p>
             </div>
         </div>
 
         <div class="project-card" onclick="openModal('m2')">
-            <img src="project2.jpg" alt="Communication Blocks" class="project-img">
+            <img src="project2.jpg" alt="ECB Performativity" class="project-img">
             <div class="project-info">
-                <h3>Building blocks of communication</h3>
-                <p>Applying topic modeling to annual reports (1999-2020) to track priority shifts.</p>
+                <h3>Performative language of the ECB</h3>
+                <p>How performative is the language of the ECB? I focus on the performativity of its communication from 1999 to 2021.</p>
             </div>
         </div>
 
-        <div class="project-card" onclick="alert('Waiting for your text to fill this!')">
-            <div class="project-info"><h3>Project 3</h3><p>Content coming soon...</p></div>
+        <div class="project-card" onclick="openModal('m3')">
+            <img src="project3.jpg" alt="Central Bank Network" class="project-img">
+            <div class="project-info">
+                <h3>Global network of central banks and central bankers</h3>
+                <p>How central banks and central bankers are connected? I extract the most mentioned entities to understand patterns of interaction.</p>
+            </div>
         </div>
-        <div class="project-card" onclick="alert('Waiting for your text to fill this!')">
-            <div class="project-info"><h3>Project 4</h3><p>Content coming soon...</p></div>
+
+        <div class="project-card" onclick="openModal('m4')">
+            <img src="project4.jpg" alt="ECB Distance" class="project-img">
+            <div class="project-info">
+                <h3>Distance between the ECB and national central banks</h3>
+                <p>In a common monetary policy framework, how distant are European national central banks and the ECB?</p>
+            </div>
         </div>
-        <div class="project-card" onclick="alert('Waiting for your text to fill this!')">
-            <div class="project-info"><h3>Project 5</h3><p>Content coming soon...</p></div>
+
+        <div class="project-card" onclick="openModal('m5')">
+            <img src="project5.jpg" alt="Topic Modeling" class="project-img">
+            <div class="project-info">
+                <h3>Building blocks of central banks' communication</h3>
+                <p>Applying topic modeling to annual reports from 1999 to 2020 to see how communication evolves.</p>
+            </div>
         </div>
 
     </div>
@@ -88,31 +109,94 @@
 <div id="m1" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('m1')">&times;</span>
-        <img src="project1.jpg" alt="ECB Project">
-        <h3>Performative language of the ECB</h3>
-        <p>Through language, we not only describe the world around us but influence it as well ('doing by saying' in John Austin's words). The best illustration of language performativity is the effect of the pledge to do “whatever it takes” by ECB President Mario Draghi in 2012.</p>
-        <p>To understand the empowerment of the ECB across the years, I focus on the performativity of its communication from 1999 to 2021, namely on the modality of the executives' utterances.</p>
+        <img src="project1.jpg" class="modal-header-img" alt="Mobile Banking Project">
+        <div class="modal-body">
+            <h2 style="border:none; margin:0; padding:0; color:var(--navy);">Customer experience with mobile banking apps</h2>
+            <p><i>Which elements of the mobile banking app are critical from a customer perspective?</i></p>
+            
+            <p>Mobile banking apps have become the <b>primary point of contact</b> between banks and their customers. Consequently, banks must ensure that their apps meet customer expectations and provide a positive experience. But what are these expectations? And how do they change over time?</p>
+            
+            <p>To answer these questions, I explore customers' reviews of the mobile banking apps of the largest European banks from <b>2010 to 2022</b>. By applying <b>text mining and sentiment analysis</b>, I identify the elements of the mobile banking app that are most frequently mentioned by customers and that are most strongly associated with positive and negative sentiments.</p>
+            
+            <p>The results of this project can help banks to <b>prioritize their investments</b> in mobile banking and to improve the customer experience.</p>
+        </div>
     </div>
 </div>
-
+    
 <div id="m2" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('m2')">&times;</span>
-        <img src="project2.jpg" alt="Communication Project">
-        <h3>Building blocks of central banks' communication</h3>
-        <p>How does the communication of European central banks evolve? To what issues do they pay attention? All together and individually? I explore the building blocks of central banks' communication by applying topic modeling to the corpus of their annual report from 1999 to 2020.</p>
+        <img src="project2.jpg" class="modal-header-img" alt="ECB Performativity Project">
+        <div class="modal-body">
+            <h2 style="border:none; margin:0; padding:0; color:var(--navy);">Performative language of the ECB</h2>
+            <p><i>How performative is the language of the ECB?</i></p>
+            
+            <p>Through language, we not only describe the world around us but influence it as well (<b>'doing by saying'</b> in <b>John Austin's</b> words). The best illustration of language performativity is the effect of the pledge to do <b>“whatever it takes”</b> by ECB President <b>Mario Draghi</b> in 2012.</p>
+            
+            <p>To understand the empowerment of the ECB across the years, I focus on the performativity of its communication from <b>1999 to 2021</b>, namely on the <b>modality of the executives' utterances</b>.</p>
+        </div>
+    </div>
+</div>
+    
+<div id="m3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('m3')">&times;</span>
+        <img src="project3.jpg" class="modal-header-img" alt="Global Network Project">
+        <div class="modal-body">
+            <h2 style="border:none; margin:0; padding:0; color:var(--navy);">Global network of central banks and central bankers</h2>
+            <p><i>How central banks and central bankers are connected?</i></p>
+            
+            <p>Central banks do not act in isolation. They are part of a global network of institutions and individuals that interact and influence each other. But how can we map this network? And how does it change over time?</p>
+            
+            <p>To answer these questions, I extract the most mentioned entities from the communication of the ECB and other central banks from <b>2007 to 2021</b>. By applying <b>Named Entity Recognition (NER)</b>, I identify the central banks and central bankers that are most frequently mentioned and that are most central to the network.</p>
+            
+            <p>The results of this project can help us to understand the patterns of interaction and influence in the global central banking community.</p>
+        </div>
     </div>
 </div>
 
+
+<div id="m4" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('m4')">&times;</span>
+        <img src="project4.jpg" class="modal-header-img" alt="ECB Distance Project">
+        <div class="modal-body">
+            <h2 style="border:none; margin:0; padding:0; color:var(--navy);">Distance between the ECB and national central banks</h2>
+            <p><i>In a common monetary policy framework, how distant are European national central banks and the ECB?</i></p>
+            
+            <p>The <b>European Central Bank (ECB)</b> and the <b>national central banks (NCBs)</b> of the Eurozone countries form the Eurosystem. While the ECB is responsible for the monetary policy of the Eurozone as a whole, the NCBs have their own specificities and mandates.</p>
+            
+            <p>To understand the communicative distance between the ECB and the NCBs, I analyze the communication of the ECB and the NCBs from <b>1999 to 2021</b>. By applying a <b>distance-based approach</b>, I measure how the communication of the NCBs has evolved over time and how it relates to the communication of the ECB.</p>
+            
+            <p>The results of this project can help us to understand the <b>degree of convergence</b> and divergence in the communication of the Eurosystem.</p>
+        </div>
+    </div>
+</div>
+
+
+<div id="m5" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('m5')">&times;</span>
+        <img src="project5.jpg" class="modal-header-img" alt="Building Blocks Project">
+        <div class="modal-body">
+            <h2 style="border:none; margin:0; padding:0; color:var(--navy);">Building blocks of central banks' communication</h2>
+            <p><i>How does the communication of European central banks evolve? To what issues do they pay attention? All together and individually?</i></p>
+            
+            <p>To understand the building blocks of central banks' communication, I explore the topics that are discussed in the <b>annual reports</b> of the largest European central banks from <b>1999 to 2020</b>. By applying <b>Topic Modeling (LDA)</b>, I identify the issues that are most frequently discussed and that have changed most significantly over time.</p>
+            
+            <p>The results of this project can help us to understand the <b>evolution of central banks' priorities</b> and how they respond to economic and social challenges.</p>
+        </div>
+    </div>
+</div>
+    
 <script>
-    function openModal(id) { document.getElementById(id).style.display = "block"; }
-    function closeModal(id) { document.getElementById(id).style.display = "none"; }
-    // Close modal if user clicks background
-    window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
+    function openModal(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
+    window.onclick = function(event) { if (event.target.className === 'modal') { closeModal(event.target.id); } }
 </script>
 
 <footer>
-    <p>&copy; 2026 Arina Tsirkuleva | arinatsirkuleva.com</p>
+    <p>&copy; 2026 Arina Tsirkuleva | Built for arinatsirkuleva.com</p>
 </footer>
 
 </body>
