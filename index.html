@@ -97,19 +97,21 @@
     </div>
 </div>
 
-<div id="m1" class="modal">
-    <div class="modal-content">
+<div id="m1" class="modal" onclick="closeModal('m1')">
+    <div class="modal-content" onclick="event.stopPropagation()">
         <span class="close" onclick="closeModal('m1')">&times;</span>
-        <div class="modal-body">
-            
-            <div class="project-header">
-                <h2>Customer Experience with Mobile Banking Apps (2010–2022)</h2>
-                <h4>European Significant Banks — Google Play Reviews Analysis</h4>
-            </div>
+        
+        <img src="project1.jpg" class="modal-header-img" alt="Customer Experience Project">
 
-            <p class="project-abstract">
-                How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.
-            </p>
+        <div class="modal-body">
+            <div class="project-header" style="text-align: center; margin-bottom: 30px;">
+                <h2 style="text-transform: none; font-weight: 400; font-size: 2.2rem; margin-bottom: 10px;">Customer experience with mobile banking apps (2010–2022)</h2>
+                <h4 style="text-transform: none; font-weight: 700; font-size: 1.1rem; color: #000; margin-bottom: 25px;">European significant banks — Google play reviews analysis</h4>
+                
+                <p class="project-abstract" style="text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
+                    How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.
+                </p>
+            </div>
 
             <span class="section-title">Data & Tools</span>
             <ul>
@@ -147,8 +149,7 @@
             <ul>
                 <li>Banks in prioritizing digital strategy investments.</li>
                 <li>Regulators in understanding evolving customer expectations in financial services.</li>
-            </p>
-
+            </ul>
         </div>
     </div>
 </div>
