@@ -97,18 +97,61 @@
     </div>
 </div>
 
-<div id="m1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m1')">&times;</span>
-    <img src="project1.jpg" class="modal-header-img">
-    <div class="modal-body">
-        <h2>Customer experience with mobile banking apps</h2>
-        <span class="research-q">Which elements of the mobile banking app are critical from a customer perspective?</span>
-        <div class="full-text">
-            <p>Mobile banking apps have become the <b>primary point of contact</b> between banks and their customers. Consequently, banks must ensure that their apps meet customer expectations and provide a positive experience. But what are these expectations? And how do they change over time?</p>
-            <p>To answer these questions, I explore customers' reviews of the mobile banking apps of the largest European banks from <b>2010 to 2022</b>. By applying <b>text mining and sentiment analysis</b>, I identify the elements of the mobile banking app that are most frequently mentioned by customers and that are most strongly associated with positive and negative sentiments.</p>
-            <p>The results of this project can help banks to <b>prioritize their investments</b> in mobile banking and to improve the customer experience.</p>
+<div id="m1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('m1')">&times;</span>
+        <div class="modal-body">
+            
+            <div class="project-header">
+                <h2>Customer Experience with Mobile Banking Apps (2010–2022)</h2>
+                <h4>European Significant Banks — Google Play Reviews Analysis</h4>
+            </div>
+
+            <p class="project-abstract">
+                How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.
+            </p>
+
+            <span class="section-title">Data & Tools</span>
+            <ul>
+                <li><b>Data:</b> 50,000+ customer reviews (2010–2022) scraped from Google Play Store for <u>banks</u> under direct ECB supervision.</li>
+                <li><b>Libraries:</b> google-play-scraper, langdetect, spaCy, NLTK.</li>
+                <li><b>Visualization:</b> <u>Tableau</u>.</li>
+            </ul>
+
+            <span class="section-title">Method</span>
+            <ol>
+                <li><b>Scraping & Language Detection:</b> Collected reviews per bank app, detected the dominant review language. Due to the unavailability of spaCy pipelines for several languages (in particular, Latvian, Finnish, and Estonian), I excluded these banks from the analysis. For Greek banks, Greek and English showed up almost equally, so I kept both in the analysis.</li>
+                <li><b>Preprocessing:</b> Cleaned text, removed stopwords + generic words ("bank", "application").</li>
+                <li><b>NLP Analysis:</b>
+                    <ul class="sub-list">
+                        <li>Used spaCy pipelines for nouns (issues/features) and adjectives (sentiment/attitudes).</li>
+                        <li>Counted most frequent 10 nouns + 10 adjectives per star rating (1–5).</li>
+                    </ul>
+                </li>
+                <li><b>Visualization:</b> Built an interactive Tableau dashboard showing:
+                    <ul class="sub-list">
+                        <li>Sentiment evolution 2010–2022.</li>
+                        <li>Top praised vs criticized app aspects.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <span class="section-title">Findings</span>
+            <ul>
+                <li><b>Praised:</b> update, ease in making payments, ease of use, intuitive design.</li>
+                <li><b>Criticized:</b> bugs in updates, security, connection, login issues, activation problem, speed, lack of personalization.</li>
+            </ul>
+
+            <span class="section-title">Impact</span>
+            <p>The project demonstrates how AI/NLP on unstructured customer data can support:</p>
+            <ul>
+                <li>Banks in prioritizing digital strategy investments.</li>
+                <li>Regulators in understanding evolving customer expectations in financial services.</li>
+            </p>
+
         </div>
     </div>
-</div></div>
+</div>
 
 <div id="m2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m2')">&times;</span>
     <img src="project2.jpg" class="modal-header-img">
