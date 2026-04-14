@@ -14,42 +14,47 @@
         nav a:hover { color: var(--gold); }
 
         header { background: linear-gradient(135deg, #1a2a6c, #2a4858); color: white; padding: 60px 20px; text-align: center; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; position: relative; z-index: 1; }
         
         /* About Section */
-        .profile-section { display: flex; align-items: center; gap: 40px; margin-top: -40px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .profile-section { display: flex; align-items: center; gap: 40px; margin-top: -40px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative; z-index: 2; }
         .profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .about-text { flex: 1; }
 
         h2.section-header { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; margin: 60px 0 30px; }
 
         /* Project Grid */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; position: relative; z-index: 3; }
         .project-card { 
             background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; 
-            transition: 0.3s; cursor: pointer;
+            transition: 0.3s; cursor: pointer; pointer-events: auto; /* Ensures it's clickable */
         }
         .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--gold); }
-        .project-img { width: 100%; height: 200px; object-fit: cover; }
-        .project-info { padding: 20px; }
+        .project-img { width: 100%; height: 200px; object-fit: cover; pointer-events: none; }
+        .project-info { padding: 20px; pointer-events: none; }
         .project-info h3 { margin: 0; color: var(--navy); font-size: 1.1rem; }
 
-        /* Modal / Pop-up Styling */
-        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); overflow-y: auto; }
+        /* Modal Overlay */
+        .modal { 
+            display: none; position: fixed; z-index: 9999; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.85); overflow-y: auto; 
+        }
         .modal-content { background: white; margin: 2% auto; padding: 50px; width: 90%; max-width: 850px; border-radius: 15px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .close { position: absolute; right: 25px; top: 15px; font-size: 40px; cursor: pointer; color: #aaa; z-index: 10001; }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 40px; cursor: pointer; color: #aaa; transition: 0.2s; }
+        .close:hover { color: var(--navy); }
         
-        /* Screenshot-style Content Styling */
+        /* Modal Content Styling (The Screenshot Vibe) */
         .project-header { text-align: center; margin-bottom: 40px; }
-        .project-header h2 { border: none; font-size: 2.2rem; margin-bottom: 5px; color: #111; font-weight: 400; padding: 0; }
+        .project-header h2 { border: none; font-size: 2.2rem; margin-bottom: 5px; color: #111; font-weight: 400; line-height: 1.2; }
         .project-header h4 { font-size: 1.1rem; margin-top: 0; color: #000; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         
-        .project-abstract { text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto 50px auto; line-height: 1.5; color: #444; font-family: 'Segoe UI Light', sans-serif; }
+        .project-abstract { text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto 50px auto; line-height: 1.6; color: #444; }
 
-        .section-title { font-weight: 700; font-size: 1.1rem; margin-top: 25px; margin-bottom: 10px; display: block; color: #000; }
+        .section-title { font-weight: 700; font-size: 1.1rem; margin-top: 25px; margin-bottom: 10px; display: block; color: #000; text-transform: capitalize; }
         .modal-body ul, .modal-body ol { padding-left: 20px; margin-bottom: 20px; }
         .modal-body li { margin-bottom: 8px; font-size: 1.05rem; }
-        .modal-body p { font-size: 1.05rem; margin-bottom: 15px; }
+        .modal-body p { font-size: 1.05rem; margin-bottom: 15px; text-align: left; }
         .sub-list { list-style-type: circle; margin-top: 5px; }
 
         footer { text-align: center; padding: 60px; background: #111; color: #777; margin-top: 100px; }
@@ -102,8 +107,8 @@
     </div>
 </div>
 
-<div id="m1" class="modal">
-    <div class="modal-content">
+<div id="m1" class="modal" onclick="closeModal('m1')">
+    <div class="modal-content" onclick="event.stopPropagation()">
         <span class="close" onclick="closeModal('m1')">&times;</span>
         <div class="modal-body">
             <div class="project-header">
@@ -113,46 +118,63 @@
             <p class="project-abstract">
                 How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.
             </p>
+            
             <span class="section-title">Data & Tools</span>
             <ul>
                 <li><b>Data:</b> 50,000+ customer reviews (2010–2022) scraped from Google Play Store for <u>banks</u> under direct ECB supervision.</li>
                 <li><b>Libraries:</b> google-play-scraper, langdetect, spaCy, NLTK.</li>
                 <li><b>Visualization:</b> <u>Tableau</u>.</li>
             </ul>
+
             <span class="section-title">Method</span>
             <ol>
-                <li><b>Scraping & Language Detection:</b> Collected reviews per bank app... (Your full text continues here)</li>
+                <li><b>Scraping & Language Detection:</b> Collected reviews per bank app, detected the dominant review language. Due to the unavailability of spaCy pipelines for several languages (in particular, Latvian, Finnish, and Estonian), I excluded these banks from the analysis. For Greek banks, Greek and English showed up almost equally, so I kept both in the analysis.</li>
                 <li><b>Preprocessing:</b> Cleaned text, removed stopwords + generic words ("bank", "application").</li>
                 <li><b>NLP Analysis:</b>
                     <ul class="sub-list">
                         <li>Used spaCy pipelines for nouns (issues/features) and adjectives (sentiment/attitudes).</li>
+                        <li>Counted most frequent 10 nouns + 10 adjectives per star rating (1–5).</li>
+                    </ul>
+                </li>
+                <li><b>Visualization:</b> Built an interactive Tableau dashboard showing:
+                    <ul class="sub-list">
+                        <li>Sentiment evolution 2010–2022.</li>
+                        <li>Top praised vs criticized app aspects.</li>
                     </ul>
                 </li>
             </ol>
+
+            <span class="section-title">Findings</span>
+            <ul>
+                <li><b>Praised:</b> update, ease in making payments, ease of use, intuitive design.</li>
+                <li><b>Criticized:</b> bugs in updates, security, connection, login issues, activation problem, speed, lack of personalization.</li>
+            </ul>
+
+            <span class="section-title">Impact</span>
+            <p>The project demonstrates how AI/NLP on unstructured customer data can support:</p>
+            <ul>
+                <li>Banks in prioritizing digital strategy investments.</li>
+                <li>Regulators in understanding evolving customer expectations in financial services.</li>
+            </ul>
         </div>
     </div>
 </div>
 
-<div id="m2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m2')">&times;</span><div class="modal-body"><h2>Performative language of the ECB</h2><p>Content goes here...</p></div></div></div>
-<div id="m3" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m3')">&times;</span><div class="modal-body"><h2>Global network</h2><p>Content goes here...</p></div></div></div>
-<div id="m4" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m4')">&times;</span><div class="modal-body"><h2>Distance Analysis</h2><p>Content goes here...</p></div></div></div>
-<div id="m5" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m5')">&times;</span><div class="modal-body"><h2>Building blocks</h2><p>Content goes here...</p></div></div></div>
+<div id="m2" class="modal" onclick="closeModal('m2')"><div class="modal-content" onclick="event.stopPropagation()"><span class="close" onclick="closeModal('m2')">&times;</span><div class="modal-body"><h2>Performative language of the ECB</h2><p>Loading full text...</p></div></div></div>
+<div id="m3" class="modal" onclick="closeModal('m3')"><div class="modal-content" onclick="event.stopPropagation()"><span class="close" onclick="closeModal('m3')">&times;</span><div class="modal-body"><h2>Global Network</h2><p>Loading full text...</p></div></div></div>
+<div id="m4" class="modal" onclick="closeModal('m4')"><div class="modal-content" onclick="event.stopPropagation()"><span class="close" onclick="closeModal('m4')">&times;</span><div class="modal-body"><h2>Distance Analysis</h2><p>Loading full text...</p></div></div></div>
+<div id="m5" class="modal" onclick="closeModal('m5')"><div class="modal-content" onclick="event.stopPropagation()"><span class="close" onclick="closeModal('m5')">&times;</span><div class="modal-body"><h2>Building Blocks</h2><p>Loading full text...</p></div></div></div>
 
 <script>
     function openModal(id) {
-        document.getElementById(id).style.display = "block";
-        document.body.style.overflow = "hidden"; // Stop scrolling
+        var modal = document.getElementById(id);
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
     }
     function closeModal(id) {
-        document.getElementById(id).style.display = "none";
-        document.body.style.overflow = "auto"; // Re-enable scrolling
-    }
-    // Closes if clicking the background
-    window.onclick = function(event) {
-        if (event.target.className === 'modal') {
-            event.target.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
+        var modal = document.getElementById(id);
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
     }
 </script>
 
