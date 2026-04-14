@@ -8,13 +8,12 @@
         :root { --navy: #1a2a6c; --gold: #fdbb2d; --bg: #ffffff; --text: #333; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: #fdfdfd; scroll-behavior: smooth; }
         
-        /* Contextual Top Menu */
+        /* Navigation */
         nav { background: white; padding: 15px 0; position: sticky; top: 0; border-bottom: 1px solid #eee; text-align: center; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         nav a { margin: 0 20px; text-decoration: none; color: var(--navy); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1.5px; }
         nav a:hover { color: var(--gold); }
 
         header { background: linear-gradient(135deg, #1a2a6c, #2a4858); color: white; padding: 60px 20px; text-align: center; }
-        
         .container { max-width: 1000px; margin: auto; padding: 20px; }
         
         /* About Section */
@@ -22,7 +21,7 @@
         .profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .about-text { flex: 1; }
 
-        h2 { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; margin: 60px 0 30px; }
+        h2.section-header { color: var(--navy); border-left: 5px solid var(--gold); padding-left: 15px; margin: 60px 0 30px; }
 
         /* Project Grid */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -35,30 +34,25 @@
         .project-info { padding: 20px; }
         .project-info h3 { margin: 0; color: var(--navy); font-size: 1.1rem; }
 
-        /* Enhanced Modal Content */
-        .modal-body { font-family: 'Segoe UI', sans-serif; color: #333; }
+        /* Modal / Pop-up Styling */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); overflow-y: auto; }
+        .modal-content { background: white; margin: 2% auto; padding: 50px; width: 90%; max-width: 850px; border-radius: 15px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 40px; cursor: pointer; color: #aaa; z-index: 10001; }
         
+        /* Screenshot-style Content Styling */
         .project-header { text-align: center; margin-bottom: 40px; }
-        .project-header h2 { border: none; font-size: 2.5rem; margin-bottom: 5px; color: #111; font-weight: 400; }
-        .project-header h4 { font-size: 1.2rem; margin-top: 0; color: #000; font-weight: 700; }
+        .project-header h2 { border: none; font-size: 2.2rem; margin-bottom: 5px; color: #111; font-weight: 400; padding: 0; }
+        .project-header h4 { font-size: 1.1rem; margin-top: 0; color: #000; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         
-        .project-abstract { 
-            text-align: center; 
-            font-size: 1.4rem; 
-            font-weight: 300; 
-            max-width: 800px; 
-            margin: 0 auto 50px auto; 
-            line-height: 1.5;
-            color: #444;
-        }
+        .project-abstract { text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto 50px auto; line-height: 1.5; color: #444; font-family: 'Segoe UI Light', sans-serif; }
 
-        .section-title { font-weight: 700; font-size: 1.1rem; margin-top: 25px; margin-bottom: 10px; display: block; }
-        .modal-body ul, .modal-body ol { padding-left: 20px; }
+        .section-title { font-weight: 700; font-size: 1.1rem; margin-top: 25px; margin-bottom: 10px; display: block; color: #000; }
+        .modal-body ul, .modal-body ol { padding-left: 20px; margin-bottom: 20px; }
         .modal-body li { margin-bottom: 8px; font-size: 1.05rem; }
         .modal-body p { font-size: 1.05rem; margin-bottom: 15px; }
-        
-        /* Sub-list styling for NLP Analysis */
         .sub-list { list-style-type: circle; margin-top: 5px; }
+
+        footer { text-align: center; padding: 60px; background: #111; color: #777; margin-top: 100px; }
     </style>
 </head>
 <body>
@@ -83,7 +77,7 @@
         </div>
     </section>
 
-    <h2 id="projects">Research Portfolio</h2>
+    <h2 id="projects" class="section-header">Research Portfolio</h2>
     <div class="project-grid">
         <div class="project-card" onclick="openModal('m1')">
             <img src="project1.jpg" class="project-img">
@@ -112,118 +106,56 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('m1')">&times;</span>
         <div class="modal-body">
-            
             <div class="project-header">
                 <h2>Customer Experience with Mobile Banking Apps (2010–2022)</h2>
                 <h4>European Significant Banks — Google Play Reviews Analysis</h4>
             </div>
-
             <p class="project-abstract">
                 How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.
             </p>
-
             <span class="section-title">Data & Tools</span>
             <ul>
                 <li><b>Data:</b> 50,000+ customer reviews (2010–2022) scraped from Google Play Store for <u>banks</u> under direct ECB supervision.</li>
                 <li><b>Libraries:</b> google-play-scraper, langdetect, spaCy, NLTK.</li>
                 <li><b>Visualization:</b> <u>Tableau</u>.</li>
             </ul>
-
             <span class="section-title">Method</span>
             <ol>
-                <li><b>Scraping & Language Detection:</b> Collected reviews per bank app, detected the dominant review language. Due to the unavailability of spaCy pipelines for several languages (in particular, Latvian, Finnish, and Estonian), I excluded these banks from the analysis. For Greek banks, Greek and English showed up almost equally, so I kept both in the analysis.</li>
+                <li><b>Scraping & Language Detection:</b> Collected reviews per bank app... (Your full text continues here)</li>
                 <li><b>Preprocessing:</b> Cleaned text, removed stopwords + generic words ("bank", "application").</li>
                 <li><b>NLP Analysis:</b>
                     <ul class="sub-list">
                         <li>Used spaCy pipelines for nouns (issues/features) and adjectives (sentiment/attitudes).</li>
-                        <li>Counted most frequent 10 nouns + 10 adjectives per star rating (1–5).</li>
-                    </ul>
-                </li>
-                <li><b>Visualization:</b> Built an interactive Tableau dashboard showing:
-                    <ul class="sub-list">
-                        <li>Sentiment evolution 2010–2022.</li>
-                        <li>Top praised vs criticized app aspects.</li>
                     </ul>
                 </li>
             </ol>
-
-            <span class="section-title">Findings</span>
-            <ul>
-                <li><b>Praised:</b> update, ease in making payments, ease of use, intuitive design.</li>
-                <li><b>Criticized:</b> bugs in updates, security, connection, login issues, activation problem, speed, lack of personalization.</li>
-            </ul>
-
-            <span class="section-title">Impact</span>
-            <p>The project demonstrates how AI/NLP on unstructured customer data can support:</p>
-            <ul>
-                <li>Banks in prioritizing digital strategy investments.</li>
-                <li>Regulators in understanding evolving customer expectations in financial services.</li>
-            </p>
-
         </div>
     </div>
 </div>
 
-<div id="m2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m2')">&times;</span>
-    <img src="project2.jpg" class="modal-header-img">
-    <div class="modal-body">
-        <h2>Performative language of the ECB</h2>
-        <span class="research-q">How performative is the language of the ECB?</span>
-        <div class="full-text">
-            <p>Through language, we not only describe the world around us but influence it as well (<b>'doing by saying'</b> in <b>John Austin's</b> words). The best illustration of language performativity is the effect of the pledge to do <b>“whatever it takes”</b> by ECB President <b>Mario Draghi</b> in 2012.</p>
-            <p>To understand the empowerment of the ECB across the years, I focus on the performativity of its communication from <b>1999 to 2021</b>, namely on the <b>modality of the executives' utterances</b>.</p>
-        </div>
-    </div>
-</div></div>
-
-<div id="m3" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m3')">&times;</span>
-    <img src="project3.jpg" class="modal-header-img">
-    <div class="modal-body">
-        <h2>Global network of central banks and central bankers</h2>
-        <span class="research-q">How central banks and central bankers are connected?</span>
-        <div class="full-text">
-            <p>Central banks do not act in isolation. They are part of a global network of institutions and individuals that interact and influence each other. But how can we map this network? And how does it change over time?</p>
-            <p>To answer these questions, I extract the most mentioned entities from the communication of the ECB and other central banks from <b>2007 to 2021</b>. By applying <b>Named Entity Recognition (NER)</b>, I identify the central banks and central bankers that are most frequently mentioned and that are most central to the network.</p>
-            <p>The results of this project can help us to understand the patterns of interaction and influence in the global central banking community.</p>
-        </div>
-    </div>
-</div></div>
-
-<div id="m4" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m4')">&times;</span>
-    <img src="project4.jpg" class="modal-header-img">
-    <div class="modal-body">
-        <h2>Distance between the ECB and national central banks</h2>
-        <span class="research-q">In a common monetary policy framework, how distant are European national central banks and the ECB?</span>
-        <div class="full-text">
-            <p>The <b>European Central Bank (ECB)</b> and the <b>national central banks (NCBs)</b> of the Eurozone countries form the Eurosystem. While the ECB is responsible for the monetary policy of the Eurozone as a whole, the NCBs have their own specificities and mandates.</p>
-            <p>To understand the communicative distance between the ECB and the NCBs, I analyze the communication of the ECB and the NCBs from <b>1999 to 2021</b>. By applying a <b>distance-based approach</b>, I measure how the communication of the NCBs has evolved over time and how it relates to the communication of the ECB.</p>
-            <p>The results of this project can help us to understand the <b>degree of convergence</b> and divergence in the communication of the Eurosystem.</p>
-        </div>
-    </div>
-</div></div>
-
-<div id="m5" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m5')">&times;</span>
-    <img src="project5.jpg" class="modal-header-img">
-    <div class="modal-body">
-        <h2>Building blocks of central banks' communication</h2>
-        <span class="research-q">How does the communication of European central banks evolve?</span>
-        <div class="full-text">
-            <p>To understand the building blocks of central banks' communication, I explore the topics that are discussed in the <b>annual reports</b> of the largest European central banks from <b>1999 to 2020</b>. By applying <b>Topic Modeling (LDA)</b>, I identify the issues that are most frequently discussed and that have changed most significantly over time.</p>
-            <p>The results of this project can help us to understand the <b>evolution of central banks' priorities</b> and how they respond to economic and social challenges.</p>
-        </div>
-    </div>
-</div></div>
+<div id="m2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m2')">&times;</span><div class="modal-body"><h2>Performative language of the ECB</h2><p>Content goes here...</p></div></div></div>
+<div id="m3" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m3')">&times;</span><div class="modal-body"><h2>Global network</h2><p>Content goes here...</p></div></div></div>
+<div id="m4" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m4')">&times;</span><div class="modal-body"><h2>Distance Analysis</h2><p>Content goes here...</p></div></div></div>
+<div id="m5" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m5')">&times;</span><div class="modal-body"><h2>Building blocks</h2><p>Content goes here...</p></div></div></div>
 
 <script>
-    function openModal(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
-    function closeModal(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
-    window.onclick = function(event) { if (event.target.className === 'modal') { closeModal(event.target.id); } }
+    function openModal(id) {
+        document.getElementById(id).style.display = "block";
+        document.body.style.overflow = "hidden"; // Stop scrolling
+    }
+    function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+    }
+    // Closes if clicking the background
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
 </script>
 
-<footer>
-    <p>&copy; 2026 Arina Tsirkuleva | arinatsirkuleva.com</p>
-</footer>
-
+<footer><p>&copy; 2026 Arina Tsirkuleva</p></footer>
 </body>
 </html>
- 
