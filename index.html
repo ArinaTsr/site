@@ -35,19 +35,30 @@
         .project-info { padding: 20px; }
         .project-info h3 { margin: 0; color: var(--navy); font-size: 1.1rem; }
 
-        /* Enhanced Modal */
-        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); overflow-y: auto; }
-        .modal-content { background: white; margin: 2% auto; padding: 50px; width: 90%; max-width: 850px; border-radius: 15px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .modal-header-img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 10px; margin-bottom: 30px; }
-        .close { position: absolute; right: 25px; top: 15px; font-size: 40px; cursor: pointer; color: #aaa; }
-        .close:hover { color: var(--navy); }
+        /* Enhanced Modal Content */
+        .modal-body { font-family: 'Segoe UI', sans-serif; color: #333; }
         
-        .modal-body h2 { border: none; padding: 0; margin-bottom: 10px; font-size: 2rem; }
-        .research-q { font-style: italic; color: #666; font-size: 1.2rem; margin-bottom: 25px; display: block; }
-        .full-text { font-size: 1.1rem; line-height: 1.8; text-align: justify; }
-        .full-text b { color: #000; }
+        .project-header { text-align: center; margin-bottom: 40px; }
+        .project-header h2 { border: none; font-size: 2.5rem; margin-bottom: 5px; color: #111; font-weight: 400; }
+        .project-header h4 { font-size: 1.2rem; margin-top: 0; color: #000; font-weight: 700; }
+        
+        .project-abstract { 
+            text-align: center; 
+            font-size: 1.4rem; 
+            font-weight: 300; 
+            max-width: 800px; 
+            margin: 0 auto 50px auto; 
+            line-height: 1.5;
+            color: #444;
+        }
 
-        footer { text-align: center; padding: 60px; background: #111; color: #777; margin-top: 100px; }
+        .section-title { font-weight: 700; font-size: 1.1rem; margin-top: 25px; margin-bottom: 10px; display: block; }
+        .modal-body ul, .modal-body ol { padding-left: 20px; }
+        .modal-body li { margin-bottom: 8px; font-size: 1.05rem; }
+        .modal-body p { font-size: 1.05rem; margin-bottom: 15px; }
+        
+        /* Sub-list styling for NLP Analysis */
+        .sub-list { list-style-type: circle; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -97,18 +108,61 @@
     </div>
 </div>
 
-<div id="m1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m1')">&times;</span>
-    <img src="project1.jpg" class="modal-header-img">
-    <div class="modal-body">
-        <h2>Customer experience with mobile banking apps</h2>
-        <span class="research-q">Which elements of the mobile banking app are critical from a customer perspective?</span>
-        <div class="full-text">
-            <p>Mobile banking apps have become the <b>primary point of contact</b> between banks and their customers. Consequently, banks must ensure that their apps meet customer expectations and provide a positive experience. But what are these expectations? And how do they change over time?</p>
-            <p>To answer these questions, I explore customers' reviews of the mobile banking apps of the largest European banks from <b>2010 to 2022</b>. By applying <b>text mining and sentiment analysis</b>, I identify the elements of the mobile banking app that are most frequently mentioned by customers and that are most strongly associated with positive and negative sentiments.</p>
-            <p>The results of this project can help banks to <b>prioritize their investments</b> in mobile banking and to improve the customer experience.</p>
+<div id="m1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('m1')">&times;</span>
+        <div class="modal-body">
+            
+            <div class="project-header">
+                <h2>Customer Experience with Mobile Banking Apps (2010–2022)</h2>
+                <h4>European Significant Banks — Google Play Reviews Analysis</h4>
+            </div>
+
+            <p class="project-abstract">
+                How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.
+            </p>
+
+            <span class="section-title">Data & Tools</span>
+            <ul>
+                <li><b>Data:</b> 50,000+ customer reviews (2010–2022) scraped from Google Play Store for <u>banks</u> under direct ECB supervision.</li>
+                <li><b>Libraries:</b> google-play-scraper, langdetect, spaCy, NLTK.</li>
+                <li><b>Visualization:</b> <u>Tableau</u>.</li>
+            </ul>
+
+            <span class="section-title">Method</span>
+            <ol>
+                <li><b>Scraping & Language Detection:</b> Collected reviews per bank app, detected the dominant review language. Due to the unavailability of spaCy pipelines for several languages (in particular, Latvian, Finnish, and Estonian), I excluded these banks from the analysis. For Greek banks, Greek and English showed up almost equally, so I kept both in the analysis.</li>
+                <li><b>Preprocessing:</b> Cleaned text, removed stopwords + generic words ("bank", "application").</li>
+                <li><b>NLP Analysis:</b>
+                    <ul class="sub-list">
+                        <li>Used spaCy pipelines for nouns (issues/features) and adjectives (sentiment/attitudes).</li>
+                        <li>Counted most frequent 10 nouns + 10 adjectives per star rating (1–5).</li>
+                    </ul>
+                </li>
+                <li><b>Visualization:</b> Built an interactive Tableau dashboard showing:
+                    <ul class="sub-list">
+                        <li>Sentiment evolution 2010–2022.</li>
+                        <li>Top praised vs criticized app aspects.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <span class="section-title">Findings</span>
+            <ul>
+                <li><b>Praised:</b> update, ease in making payments, ease of use, intuitive design.</li>
+                <li><b>Criticized:</b> bugs in updates, security, connection, login issues, activation problem, speed, lack of personalization.</li>
+            </ul>
+
+            <span class="section-title">Impact</span>
+            <p>The project demonstrates how AI/NLP on unstructured customer data can support:</p>
+            <ul>
+                <li>Banks in prioritizing digital strategy investments.</li>
+                <li>Regulators in understanding evolving customer expectations in financial services.</li>
+            </p>
+
         </div>
     </div>
-</div></div>
+</div>
 
 <div id="m2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m2')">&times;</span>
     <img src="project2.jpg" class="modal-header-img">
