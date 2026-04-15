@@ -53,29 +53,122 @@
             margin: 60px 0 30px; 
         }
 
-        /* Project Grid */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .project-card { 
-            background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; 
-            transition: 0.3s; cursor: pointer;
+/* =========================================
+           NEW Editoral Timeline (Not a Grid)
+           ========================================= */
+        .editorial-container {
+            max-width: 1100px; /* Wider container for the new layout */
+            margin: auto;
+            padding: 40px 20px;
         }
-        .project-img { width: 100%; height: 200px; object-fit: cover; }
-        /* Change main page card titles to Dark Grey */
-        .project-info h3 { 
-            margin: 0; 
-            color: #333 !important; 
-            font-size: 1.1rem;        /* Slightly bigger */
-            font-weight: 400;         /* Semi-bold */
-            line-height: 1.4;         /* Better spacing between lines if title is long */
-            padding: 15px;            /* Adds space inside the card around the text */
+
+        /* The horizontal separator line */
+        .editorial-divider {
+            border: 0;
+            border-top: 1px solid #111; /* Dark solid line as requested */
+            margin: 60px 0;
+            width: 100%;
         }
-        .project-header h2 {
-            color: #333 !important; 
-            text-transform: none;
-            font-weight: 300;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+
+        .project-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px; /* Large space between image and text */
+            margin-bottom: 80px; /* Spacing between projects */
         }
+
+        /* Flex direction swaps every second project */
+        .project-section:nth-of-type(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Project Image Styles */
+        .p-image-box {
+            flex: 1; /* Takes up half the row */
+            max-width: 50%; /* Image box is 50% width */
+            text-align: center;
+            overflow: hidden; /* For zoom effect */
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            border: 1px solid #eee; /* Optional border for definition */
+        }
+        
+        .p-image-box img {
+            width: 100%;
+            height: auto;
+            max-height: 400px; /* Restrict height if necessary */
+            object-fit: contain; /* Don't crop original images */
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        /* Zoom effect on image hover */
+        .p-image-box:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Project Text Styles */
+        .p-text-box {
+            flex: 1; /* Takes up the other half the row */
+            padding: 20px;
+            text-align: left; /* Editorial alignment */
+        }
+
+        /* Numbering */
+        .p-number {
+            font-size: 2rem; /* Large and dominant */
+            color: #333;
+            font-family: inherit;
+            margin-bottom: 15px;
+            display: block; /* Force number above title */
+        }
+
+        /* Grid Project Titles: Clean and Editorial */
+        .p-text-box h3 {
+            margin: 0 0 20px 0; /* Tight title */
+            color: #333 !important;
+            font-size: 1.6rem; /* Slightly larger editorial size */
+            font-weight: 500;
+            line-height: 1.3;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .p-text-box h3:hover {
+            color: var(--gold) !important;
+        }
+
+        /* Grid Short Descriptions: Matching your photo */
+        .p-description {
+            font-size: 1.05rem;
+            line-height: 1.8; /* Good editorial line height */
+            color: #444;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: underline; /* Matching the example photo */
+        }
+        
+        /* Optional color change on hover for the underlined text */
+        .p-description:hover {
+            color: var(--navy);
+        }
+
+        /* Responsive Fix for Mobile */
+        @media (max-width: 768px) {
+            .project-section, .project-section:nth-of-type(even) {
+                flex-direction: column !important; /* Stack vertically on small screens */
+                gap: 30px;
+            }
+            .p-image-box, .p-text-box {
+                max-width: 100%;
+            }
+            .p-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        
         /* Enhanced Modal */
         .modal-header-img { 
             display: block;      /* This forces the image to its own line */
@@ -107,8 +200,9 @@
     <a href="mailto:arina.tsr@gmail.com">Contact</a>
 </nav>
 
-<header id="home">
+<header>
     <h1>Arina Tsirkuleva</h1>
+    <h3 style="font-weight: 300; letter-spacing: 2px; margin-top: 10px;">DATA ANALYTICS & NLP</h3>
 </header>
 
 <div class="container">
@@ -120,30 +214,65 @@
         </div>
     </section>
 
-    <h2 id="projects">Research Portfolio</h2>
-    <div class="project-grid">
-        <div class="project-card" onclick="openModal('m1')">
-            <img src="project1.jpg" class="project-img">
-            <div class="project-info"><h3>Customer experience with mobile banking apps</h3></div>
+<div class="editorial-container">
+    <h2 class="section-header">Research Portfolio</h2>
+
+    <hr class="editorial-divider">
+
+    <section class="project-section" onclick="openModal('m1')">
+        <div class="p-image-box">
+            <img src="project1.jpg" alt="Project 1: Mobile Apps">
         </div>
-        <div class="project-card" onclick="openModal('m2')">
-            <img src="project2.jpg" class="project-img">
-            <div class="project-info"><h3>Performative language of the ECB</h3></div>
+        <div class="p-text-box">
+            <span class="p-number">01</span>
+            <h3>What Do Customers Really Want? Insights from 12 Years of Mobile Banking Reviews</h3>
+            <p class="p-description">How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.</p>
         </div>
-        <div class="project-card" onclick="openModal('m3')">
-            <img src="project3.jpg" class="project-img">
-            <div class="project-info"><h3>Global network of central banks and bankers</h3></div>
+    </section>
+
+    <section class="project-section" onclick="openModal('m2')">
+        <div class="p-image-box">
+            <img src="project2.jpg" alt="Project 2: Performative Power">
         </div>
-        <div class="project-card" onclick="openModal('m4')">
-            <img src="project4.jpg" class="project-img">
-            <div class="project-info"><h3>Distance between the ECB and national banks</h3></div>
+        <div class="p-text-box">
+            <span class="p-number">02</span>
+            <h3>Do Words Move Markets? The Performative Power of ECB Speeches</h3>
+            <p class="p-description">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. The ECB, initially designed as a technocratic institution, has gradually gained influence through the performative power of its language. A famous example is Mario Draghi’s 2012 pledge to do “whatever it takes”, which stabilized markets without any immediate policy action. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
         </div>
-        <div class="project-card" onclick="openModal('m5')">
-            <img src="project5.jpg" class="project-img">
-            <div class="project-info"><h3>Building blocks of communication</h3></div>
+    </section>
+
+    <section class="project-section" onclick="openModal('m3')">
+        <div class="p-image-box">
+            <img src="project3.jpg" alt="Project 3: Global Networks">
         </div>
+        <div class="p-text-box">
+            <span class="p-number">03</span>
+            <h3>Networks of Influence: Central Banks and Key Personalities (2007–2021)</h3>
+            <p class="p-description">Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. During financial crises and periods of uncertainty, these networks become especially relevant. This project explores how central banks and their leaders reference each other and external organizations, revealing patterns of interaction and co-influence over time.</p>
+        </div>
+    </section>
+
+    <section class="project-section" onclick="openModal('m4')">
+        <div class="p-image-box">
+            <img src="project4.jpg" alt="Project 4: Speaking with One Voice">
+        </div>
+        <div class="p-text-box">
+            <span class="p-number">04</span>
+            <h3>Speaking with One Voice? ECB vs National Banks</h3>
+            <p class="p-description">The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. In theory, monetary policy is common — but communication may reveal differences in priorities, perspectives, or timing. This project asks: How closely aligned are the communication strategies of the ECB and NCBs over time?</p>
+        </div>
+    </section>
+    <section class="project-section" onclick="openModal('m5')">
+        <div class="p-image-box">
+            <img src="project5.jpg" alt="Project 5: Mapping Communication">
+        </div>
+        <div class="p-text-box">
+            <span class="p-number">05</span>
+            <h3>“What Do Central Banks Talk About? Mapping 20 Years of Communication”</h3>
+            <p class="p-description">Central banks rely on communication to shape expectations and explain policy choices. But what issues do they emphasize over time, and how do priorities differ across national central banks (NCBs) and the European Central Bank (ECB)? This project investigates the evolution of communication themes in the Eurosystem over two decades.</p>
+        </div>
+    </section>
     </div>
-</div>
 
 <div id="m1" class="modal" onclick="closeModal('m1')">
     <div class="modal-content" onclick="event.stopPropagation()">
