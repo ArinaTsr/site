@@ -6,38 +6,25 @@
     <title>Arina Tsirkuleva | Researcher</title>
     <style>
         :root { --navy: #1a2a6c; --gold: #fdbb2d; --bg: #ffffff; --text: #333; }
+        
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.7; 
-            color: #333; 
-            font-size: 16px; 
-            margin: 0; 
-            background: #f5f5f5; 
-            scroll-behavior: smooth; 
+            line-height: 1.7; color: #333; font-size: 16px; margin: 0; 
+            background: #fdfdfd; scroll-behavior: smooth; 
         }
 
-        /* Contextual Top Menu */
+        /* Top Menu */
         nav { background: white; padding: 15px 0; position: sticky; top: 0; border-bottom: 1px solid #eee; text-align: center; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        nav a {
-            margin: 0 20px;
-            text-decoration: none;
-            color: #333; 
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-        }
+        nav a { margin: 0 20px; text-decoration: none; color: #333; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1.5px; }
         nav a:hover { color: var(--gold); }
 
         header { 
-            background: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #333; 
-            padding: 100px 20px; 
-            text-align: center; 
+            background: url('background.jpg') no-repeat center center;
+            background-size: cover; background-attachment: fixed;
+            color: #333; padding: 100px 20px; text-align: center; 
         }
+        header h1 { font-size: 3.5rem; margin-bottom: 5px; color: #333; }
+        header h3 { font-size: 1.2rem; font-weight: 300; letter-spacing: 4px; color: #555; margin-top: 0; }
         
         .container { max-width: 1000px; margin: auto; padding: 20px; }
         
@@ -46,172 +33,31 @@
         .profile-pic { width: 180px; height: 180px; border-radius: 15px; object-fit: cover; border: 5px solid white; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
         .about-text { flex: 1; }
 
-       h2.section-header { 
-            color: #333 !important; /* Specific Dark Grey */
-            border-left: 5px solid var(--gold); 
-            padding-left: 15px; 
-            margin: 60px 0 30px; 
-        }
+        h2.section-header { color: #333 !important; border-left: 5px solid var(--gold); padding-left: 15px; margin: 60px 0 30px; }
 
-/* =========================================
-           NEW Editoral Timeline (Not a Grid)
-           ========================================= */
-        .editorial-container {
-            max-width: 1100px; /* Wider container for the new layout */
-            margin: auto;
-            padding: 40px 20px;
-        }
+        /* Editorial Timeline (Main Page) */
+        .editorial-container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        .editorial-divider { border: 0; border-top: 1px solid #111; margin: 60px 0; width: 100%; }
+        .project-section { display: flex; align-items: center; justify-content: space-between; gap: 60px; margin-bottom: 80px; cursor: pointer; }
+        .project-section:nth-of-type(even) { flex-direction: row-reverse; }
+        .p-image-box { flex: 1; max-width: 50%; border-radius: 12px; transition: 0.3s; border: 1px solid #eee; overflow: hidden; }
+        .p-image-box img { width: 100%; height: auto; display: block; transition: transform 0.3s; }
+        .p-image-box:hover img { transform: scale(1.03); }
+        .p-text-box { flex: 1; padding: 20px; }
+        .p-number { font-size: 2.5rem; color: #333; margin-bottom: 10px; display: block; font-weight: 300; }
+        .p-text-box h3 { margin: 0 0 20px 0; color: #333 !important; font-size: 1.8rem; font-weight: 500; line-height: 1.3; }
+        .p-description { font-size: 1.05rem; line-height: 1.8; color: #444; text-decoration: underline; }
 
-        /* The horizontal separator line */
-        .editorial-divider {
-            border: 0;
-            border-top: 1px solid #111; /* Dark solid line as requested */
-            margin: 60px 0;
-            width: 100%;
-        }
-
-        .project-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px; /* Large space between image and text */
-            margin-bottom: 80px; /* Spacing between projects */
-        }
-
-        /* Flex direction swaps every second project */
-        .project-section:nth-of-type(even) {
-            flex-direction: row-reverse;
-        }
-
-        /* Project Image Styles */
-        .p-image-box {
-            flex: 1; /* Takes up half the row */
-            max-width: 50%; /* Image box is 50% width */
-            text-align: center;
-            overflow: hidden; /* For zoom effect */
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-            border: 1px solid #eee; /* Optional border for definition */
-        }
-        
-        .p-image-box img {
-            width: 100%;
-            height: auto;
-            max-height: 400px; /* Restrict height if necessary */
-            object-fit: contain; /* Don't crop original images */
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        /* Zoom effect on image hover */
-        .p-image-box:hover img {
-            transform: scale(1.03);
-        }
-
-        /* Project Text Styles */
-        .p-text-box {
-            flex: 1; /* Takes up the other half the row */
-            padding: 20px;
-            text-align: left; /* Editorial alignment */
-        }
-
-        /* Numbering */
-        .p-number {
-            font-size: 2rem; /* Large and dominant */
-            color: #333;
-            font-family: inherit;
-            margin-bottom: 15px;
-            display: block; /* Force number above title */
-        }
-
-        /* Grid Project Titles: Clean and Editorial */
-        .p-text-box h3 {
-            margin: 0 0 20px 0; /* Tight title */
-            color: #333 !important;
-            font-size: 1.6rem; /* Slightly larger editorial size */
-            font-weight: 500;
-            line-height: 1.3;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        
-        .p-text-box h3:hover {
-            color: var(--gold) !important;
-        }
-
-        /* Grid Short Descriptions: Matching your photo */
-        .p-description {
-            font-size: 1.05rem;
-            line-height: 1.8; /* Good editorial line height */
-            color: #444;
-            font-weight: 400;
-            cursor: pointer;
-            text-decoration: underline; /* Matching the example photo */
-        }
-        
-        /* Optional color change on hover for the underlined text */
-        .p-description:hover {
-            color: var(--navy);
-        }
-
-        /* Responsive Fix for Mobile */
-        @media (max-width: 768px) {
-            .project-section, .project-section:nth-of-type(even) {
-                flex-direction: column !important; /* Stack vertically on small screens */
-                gap: 30px;
-            }
-            .p-image-box, .p-text-box {
-                max-width: 100%;
-            }
-            .p-number {
-                font-size: 1.5rem;
-            }
-        }
-
-        
-        /* Enhanced Modal */
-        /* This part ensures the full descriptions are HIDDEN by default */
-        .modal { 
-            display: none; 
-            position: fixed; 
-            z-index: 9999; 
-            left: 0; 
-            top: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(0,0,0,0.85); /* Dim the background */
-            overflow-y: auto; 
-        }
-        
-        /* This is the box that pops up */
-        .modal-content { 
-            background: white; 
-            margin: 5% auto; 
-            padding: 40px; 
-            width: 90%; 
-            max-width: 900px; 
-            border-radius: 15px; 
-            position: relative; 
-        }
-        .modal-header-img { 
-            display: block;      /* This forces the image to its own line */
-            margin-top: 50px !important;  /* This pushes the image DOWN */
-            margin-bottom: 30px; 
-            width: 100%; 
-            height: auto;
-            max-height: 500px; 
-            object-fit: contain; 
-            border-radius: 10px; 
-        }
+        /* MODAL POP-UPS (HIDDEN BY DEFAULT) */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; }
+        .modal-content { background: white; margin: 4% auto; padding: 50px; width: 90%; max-width: 900px; border-radius: 15px; position: relative; }
+        .modal-header-img { display: block; margin: 40px auto; width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 10px; }
         .close { position: absolute; right: 25px; top: 15px; font-size: 40px; cursor: pointer; color: #aaa; }
-        .close:hover { color: var(--navy); }
-        
-        .modal-body h2 { border: none; padding: 0; margin-bottom: 10px; font-size: 2rem; }
-        .research-q { font-style: italic; color: #666; font-size: 1.2rem; margin-bottom: 25px; display: block; }
-        .full-text { font-size: 1.1rem; line-height: 1.8; text-align: justify; }
-        .full-text b { color: #000; }
+        .modal-body p strong { display: block; margin-top: 25px; font-size: 1.2rem; color: #111; }
+        .sub-list { margin-top: 5px; }
 
         footer { text-align: center; padding: 60px; background: #111; color: #777; margin-top: 100px; }
+        @media (max-width: 768px) { .project-section, .project-section:nth-of-type(even) { flex-direction: column !important; gap: 30px; } .p-image-box { max-width: 100%; } }
     </style>
 </head>
 <body>
@@ -223,7 +69,7 @@
     <a href="mailto:arina.tsr@gmail.com">Contact</a>
 </nav>
 
-<header>
+<header id="home">
     <h1>Arina Tsirkuleva</h1>
     <h3 style="font-weight: 300; letter-spacing: 2px; margin-top: 10px;">DATA ANALYTICS & NLP</h3>
 </header>
@@ -233,96 +79,84 @@
         <img src="profile.jpg" alt="Arina" class="profile-pic">
         <div class="about-text">
             <p>Curiosity drives my work as a researcher. I enjoy uncovering unexpected data sources and turning them into fresh insights. My goal is to transform these findings into meaningful stories that help us better understand the world.</p>
-            <p>Language is at the heart of my passion — it tells powerful stories about how we connect and interact. With NLP evolving at lightning speed, I’m always learning and experimenting. Explore my projects and see where curiosity has taken me.</p>
+            <p>Language is at the heart of my passion — it tells powerful stories about how we connect and interact. With NLP evolving at lightning speed, I’m always learning and experimenting.</p>
         </div>
     </section>
 
-<div class="editorial-container">
-    <h2 class="section-header">Research Portfolio</h2>
+    <div class="editorial-container" id="projects">
+        <h2 class="section-header">Research Portfolio</h2>
+        <hr class="editorial-divider">
 
-    <hr class="editorial-divider">
-
-    <section class="project-section" onclick="openModal('m1')">
-        <div class="p-image-box">
-            <img src="project1.jpg" alt="Project 1: Mobile Apps">
-        </div>
-        <div class="p-text-box">
-            <span class="p-number">01</span>
-            <h3>What Do Customers Really Want? Insights from 12 Years of Mobile Banking Reviews</h3>
-            <p class="p-description">How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.</p>
-        </div>
-    </section>
-
-    <section class="project-section" onclick="openModal('m2')">
-        <div class="p-image-box">
-            <img src="project2.jpg" alt="Project 2: Performative Power">
-        </div>
-        <div class="p-text-box">
-            <span class="p-number">02</span>
-            <h3>Do Words Move Markets? The Performative Power of ECB Speeches</h3>
-            <p class="p-description">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. The ECB, initially designed as a technocratic institution, has gradually gained influence through the performative power of its language. A famous example is Mario Draghi’s 2012 pledge to do “whatever it takes”, which stabilized markets without any immediate policy action. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
-        </div>
-    </section>
-
-    <section class="project-section" onclick="openModal('m3')">
-        <div class="p-image-box">
-            <img src="project3.jpg" alt="Project 3: Global Networks">
-        </div>
-        <div class="p-text-box">
-            <span class="p-number">03</span>
-            <h3>Networks of Influence: Central Banks and Key Personalities (2007–2021)</h3>
-            <p class="p-description">Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. During financial crises and periods of uncertainty, these networks become especially relevant. This project explores how central banks and their leaders reference each other and external organizations, revealing patterns of interaction and co-influence over time.</p>
-        </div>
-    </section>
-
-    <section class="project-section" onclick="openModal('m4')">
-        <div class="p-image-box">
-            <img src="project4.jpg" alt="Project 4: Speaking with One Voice">
-        </div>
-        <div class="p-text-box">
-            <span class="p-number">04</span>
-            <h3>Speaking with One Voice? ECB vs National Banks</h3>
-            <p class="p-description">The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. In theory, monetary policy is common — but communication may reveal differences in priorities, perspectives, or timing. This project asks: How closely aligned are the communication strategies of the ECB and NCBs over time?</p>
-        </div>
-    </section>
-    <section class="project-section" onclick="openModal('m5')">
-        <div class="p-image-box">
-            <img src="project5.jpg" alt="Project 5: Mapping Communication">
-        </div>
-        <div class="p-text-box">
-            <span class="p-number">05</span>
-            <h3>“What Do Central Banks Talk About? Mapping 20 Years of Communication”</h3>
-            <p class="p-description">Central banks rely on communication to shape expectations and explain policy choices. But what issues do they emphasize over time, and how do priorities differ across national central banks (NCBs) and the European Central Bank (ECB)? This project investigates the evolution of communication themes in the Eurosystem over two decades.</p>
-        </div>
-    </section>
-    </div>
-
-<div id="m1" class="modal" onclick="closeModal('m1')">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close" onclick="closeModal('m1')">&times;</span>
-        
-        <div class="modal-body">
-            <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Customer experience with mobile banking apps (2010–2022)</h2>
-                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">European significant banks — Google play reviews analysis</h4>
-                
-                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
-                    How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.
-                </p>
-                <br><br>
-                <img src="project1.jpg" class="modal-header-img" alt="Customer Experience Project">
+        <section class="project-section" onclick="openModal('m1')">
+            <div class="p-image-box"><img src="project1.jpg"></div>
+            <div class="p-text-box">
+                <span class="p-number">01</span>
+                <h3>What Do Customers Really Want? Insights from 12 Years of Mobile Banking Reviews</h3>
+                <p class="p-description">How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.</p>
             </div>
+        </section>
+        <hr class="editorial-divider">
 
+        <section class="project-section" onclick="openModal('m2')">
+            <div class="p-image-box"><img src="project2.jpg"></div>
+            <div class="p-text-box">
+                <span class="p-number">02</span>
+                <h3>Do Words Move Markets? The Performative Power of ECB Speeches</h3>
+                <p class="p-description">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. This project investigates how the performative dimension has evolved.</p>
+            </div>
+        </section>
+        <hr class="editorial-divider">
+
+        <section class="project-section" onclick="openModal('m3')">
+            <div class="p-image-box"><img src="project3.jpg"></div>
+            <div class="p-text-box">
+                <span class="p-number">03</span>
+                <h3>Networks of Influence: Central Banks and Key Personalities</h3>
+                <p class="p-description">Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. This project explores how leaders reference each other.</p>
+            </div>
+        </section>
+        <hr class="editorial-divider">
+
+        <section class="project-section" onclick="openModal('m4')">
+            <div class="p-image-box"><img src="project4.jpg"></div>
+            <div class="p-text-box">
+                <span class="p-number">04</span>
+                <h3>Speaking With One Voice? ECB vs National Banks</h3>
+                <p class="p-description">The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. This project asks: How closely aligned are the communication strategies?</p>
+            </div>
+        </section>
+        <hr class="editorial-divider">
+
+        <section class="project-section" onclick="openModal('m5')">
+            <div class="p-image-box"><img src="project5.jpg"></div>
+            <div class="p-text-box">
+                <span class="p-number">05</span>
+                <h3>Mapping 20 Years of Central Bank Communication</h3>
+                <p class="p-description">Central banks rely on communication to shape expectations and explain policy choices. This project investigates the evolution of themes in the Eurosystem.</p>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div id="m1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('m1')">&times;</span>
+        <div class="modal-body">
+            <div style="text-align: center;">
+                <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Customer experience with mobile banking apps (2010–2022)</h2>
+                <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">European significant banks — Google play reviews analysis</h4>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.</p>
+                <img src="project1.jpg" class="modal-header-img">
+            </div>
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: 50,000+ customer reviews (2010–2022) scraped from Google Play Store for <a href="https://www.bankingsupervision.europa.eu/ecb/pub/pdf/ssm.listofsupervisedentities202104.en.pdf?d62ded18a8c05df230e1a8132ead3a1b" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">banks</a></li> under direct ECB supervision.</li>
+                <li>Data: 50,000+ customer reviews scraped from Google Play Store for <a href="https://www.bankingsupervision.europa.eu/ecb/pub/pdf/ssm.listofsupervisedentities202104.en.pdf" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">banks</a> under direct ECB supervision.</li>
                 <li>Libraries: google-play-scraper, langdetect, spaCy, NLTK.</li>
-                <li>Visualization: <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/Mobilebankingappreviews/mobile_app" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">Tableau</a></li>
+                <li>Visualization: <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/Mobilebankingappreviews/mobile_app" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Tableau</a></li>
             </ul>
-
             <p><strong>Method</strong></p>
             <ol>
-                <li>Scraping & Language Detection: Collected reviews per bank app, detected the dominant review language. Due to the unavailability of spaCy pipelines for several languages (in particular, Latvian, Finnish, and Estonian), I excluded these banks from the analysis. For Greek banks, Greek and English showed up almost equally, so I kept both in the analysis.</li>
+                <li>Scraping & Language Detection: Collected reviews per bank app. Due to the unavailability of spaCy pipelines for several languages, I excluded some banks. For Greek banks, Greek and English were both used.</li>
                 <li>Preprocessing: Cleaned text, removed stopwords + generic words ("bank", "application").</li>
                 <li>NLP Analysis:
                     <ul class="sub-list">
@@ -330,257 +164,118 @@
                         <li>Counted most frequent 10 nouns + 10 adjectives per star rating (1–5).</li>
                     </ul>
                 </li>
-                <li>Visualization: Built an interactive Tableau dashboard showing:
-                    <ul class="sub-list">
-                        <li>Sentiment evolution 2010–2022.</li>
-                        <li>Top praised vs criticized app aspects.</li>
-                    </ul>
-                </li>
+                <li>Visualization: Built an interactive Tableau dashboard showing sentiment evolution and top criticized aspects.</li>
             </ol>
-
             <p><strong>Findings</strong></p>
             <ul>
                 <li>Praised: update, ease in making payments, ease of use, intuitive design.</li>
-                <li>Criticized: bugs in updates, security, connection, login issues, activation problem, speed, lack of personalization.</li>
-            </ul>
-
-            <p><strong>Impact</strong></p>
-            <p>The project demonstrates how AI/NLP on unstructured customer data can support:</p>
-            <ul>
-                <li>Banks in prioritizing digital strategy investments.</li>
-                <li>Regulators in understanding evolving customer expectations in financial services.</li>
+                <li>Criticized: bugs in updates, security, connection, login issues, speed, lack of personalization.</li>
             </ul>
         </div>
     </div>
 </div>
 
-<div id="m2" class="modal" onclick="closeModal('m2')">
-    <div class="modal-content" onclick="event.stopPropagation()">
+<div id="m2" class="modal">
+    <div class="modal-content">
         <span class="close" onclick="closeModal('m2')">&times;</span>
-        
         <div class="modal-body">
-            <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Performative language of the ECB (1999–2021)</h2>
-                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">Analyzing modality in central bank communication</h4>
-                
-                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
-                    Central bank communication is not only descriptive — it can actively shape market expectations and political integration. The ECB, initially designed as a technocratic institution, has gradually gained influence through the performative power of its language. A famous example is Mario Draghi’s 2012 pledge to do “whatever it takes”, which stabilized markets without any immediate policy action. This project investigates how the performative dimension of ECB communication has evolved across two decades.
-                </p>
-                <br><br>
-                <img src="project2.jpg" class="modal-header-img" alt="Performative Language Project">
+            <div style="text-align: center;">
+                <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Performative language of the ECB (1999–2021)</h2>
+                <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">Analyzing modality in central bank communication</h4>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. This project investigates how the performative dimension has evolved across two decades.</p>
+                <img src="project2.jpg" class="modal-header-img">
             </div>
-
-            <p>The European Central Bank (ECB) was originally designed as a technocratic institution. The Maastricht Treaty set out the ECB’s formal structure and mandate, yet the ways in which these are exercised have been gradually crafted by the institution’s leaders. Members of the Executive Board not only manage monetary policy but also define the ECB’s public voice. Through their speeches and statements, they construct and project the institution’s identity.</p>
-
-            <p>I examine how that identity has evolved by focusing on the modality of ECB executives’ communication. In linguistics, modality refers to the speaker’s attitude toward reality or truth. There are several ways to classify modality, but two categories are especially relevant here:</p>
-            <ul>
-                <li>Epistemic modality: expresses the speaker’s stance toward knowledge, belief, or certainty in a proposition.</li>
-                <li>Deontic modality: reflects how the world should be according to norms or expectations.</li>
-            </ul>
-
+            <p>The European Central Bank (ECB) was originally designed as a technocratic institution. Members of the Executive Board define the ECB’s public voice, constructing the institution’s identity through speeches. I examine how that identity has evolved by focusing on modality.</p>
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: <a href="https://www.ecb.europa.eu/press/key/html/downloads.en.html" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">ECB Speeches Dataset</a> (1999–2021).</li>
-                <li>Libraries: NLTK, spaCy (for preprocessing and modality parsing).</li>
-                <li>Custom Resources: Manually built dictionary of modality markers (epistemic: may, might, will; deontic: must, should, we commit to...).</li>
+                <li>Data: <a href="https://www.ecb.europa.eu/press/key/html/downloads.en.html" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">ECB Speeches Dataset</a> (1999–2021).</li>
+                <li>Libraries: NLTK, spaCy.</li>
             </ul>
-
             <p><strong>Method</strong></p>
             <ol>
-                <li>Preprocessing: Tokenization, lemmatization, stopword removal across multiple languages.</li>
-                <li>Modality Parsing:
-                    <ul class="sub-list">
-                        <li>Identified epistemic modality (beliefs, predictions, probabilities).</li>
-                        <li>Identified deontic modality (norms, commitments, obligations).</li>
-                        <li>Constructed a custom dictionary of modal expressions and phrases, mapped to spaCy parsing outputs.</li>
-                    </ul>
-                </li>
-                <li>Temporal Analysis: Tracked shifts in modality use over 22 years of ECB communications.</li>
+                <li>Preprocessing: Tokenization and lemmatization across multiple languages.</li>
+                <li>Modality Parsing: Identified epistemic modality (beliefs, probabilities) and deontic modality (commitments, obligations).</li>
+                <li>Temporal Analysis: Tracked shifts in modality use over 22 years.</li>
             </ol>
-
             <p><strong>Findings (work in progress)</strong></p>
             <ul>
-                <li>Crisis periods (2008–2012): Higher frequency of deontic modality (commitments, obligations), signaling strong intervention stance.</li>
-                <li>Post-crisis and integration phases: Growing use of epistemic modality, emphasizing probabilities, scenarios, and market expectations.</li>
-                <li>The ECB’s communication style has contributed to its institutional empowerment, moving from “technocratic” to “performative actor” in European integration.</li>
-            </ul>
-
-            <p><strong>Impact</strong></p>
-            <p>The project demonstrates how AI/NLP can systematically analyze performativity in policy communication, offering insights into:</p>
-            <ul>
-                <li>How central banks shape market expectations beyond quantitative measures.</li>
-                <li>How linguistic strategies reflect evolving institutional power (Brunnermeier et al., 2016; Chang, 2015; Tortola, 2020).</li>
-                <li>Potential early-warning indicators of market-moving communication.</li>
+                <li>Crisis periods (2008–2012): Higher frequency of deontic modality signaling a strong intervention stance.</li>
+                <li>The ECB’s communication style has contributed to its institutional empowerment.</li>
             </ul>
         </div>
     </div>
 </div>
 
-<div id="m3" class="modal" onclick="closeModal('m3')">
-    <div class="modal-content" onclick="event.stopPropagation()">
+<div id="m3" class="modal">
+    <div class="modal-content">
         <span class="close" onclick="closeModal('m3')">&times;</span>
-        
         <div class="modal-body">
-            <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Global network of central banks and central bankers (2007–2021)</h2>
-                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">Entity recognition and network analysis of BIS speech corpus</h4>
-                
-                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
-                    Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. During financial crises and periods of uncertainty, these networks become especially relevant. This project explores how central banks and their leaders reference each other and external organizations, revealing patterns of interaction and co-influence over time.
-                </p>
-                <br><br>
-                <img src="project3.jpg" class="modal-header-img" alt="Global Network Project">
+            <div style="text-align: center;">
+                <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Global network of central banks and central bankers (2007–2021)</h2>
+                <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">Entity recognition and network analysis of BIS speech corpus</h4>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central banks are not isolated actors. This project explores how they reference each other and external organizations, revealing patterns of co-influence.</p>
+                <img src="project3.jpg" class="modal-header-img">
             </div>
-
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: <a href="https://www.bis.org/cbspeeches/index.htm" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">Central bank speeches</a> from the Bank for International Settlements (2007–2021), scraped via Selenium.</li>
-                <li>Libraries: spaCy (NER & preprocessing), NetworkX (graph analysis), Louvain method (community detection), Pyvis (interactive visualization).</li>
+                <li>Data: <a href="https://www.bis.org/cbspeeches/index.htm" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Central bank speeches</a> from the BIS, scraped via Selenium.</li>
+                <li>Libraries: NetworkX, spaCy (NER), Pyvis.</li>
             </ul>
-
             <p><strong>Method</strong></p>
             <ol>
-                <li>Named-Entity Recognition (NER): Extracted organizations and individuals mentioned in central bank speeches.</li>
-                <li>Cleaning & Normalization:
-                    <ul class="sub-list">
-                        <li>Removed self-references (e.g., ECB mentioning "ECB").</li>
-                        <li>Merged coreferences (e.g., "Fed", "Federal Reserve System", "US Federal Reserve"): automatically using <a href="https://www.ecb.europa.eu/services/glossary/html/glossa.en.html" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">ECB abbreviations glossary</a> and manually.</li>
-                        <li>Applied a frequency threshold (≥10 mentions).</li>
-                    </ul>
-                </li>
-                <li>Network Construction:
-                    <ul class="sub-list">
-                        <li>Built directed source–target networks: speech source → entity/person mentioned.</li>
-                        <li>Separate networks for organizations and individuals.</li>
-                    </ul>
-                </li>
-                <li>Community Detection: Applied Louvain method to identify clusters of closely connected <a href="https://arinatsr.github.io/cbs_org/" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">institutions</a> and <a href="https://arinatsr.github.io/cbs_pers/" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">policymakers</a>.</li>
-                <li>Visualization: Interactive Pyvis graphs (suggested ForceAtlas2 solver for clarity).</li>
+                <li>Named-Entity Recognition (NER): Extracted organizations and individuals.</li>
+                <li>Normalization: Merged coreferences using <a href="https://www.ecb.europa.eu/services/glossary/html/glossa.en.html" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">ECB abbreviations glossary</a>.</li>
+                <li>Community Detection: Applied Louvain method to identify clusters of <a href="https://arinatsr.github.io/cbs_org/" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">institutions</a> and <a href="https://arinatsr.github.io/cbs_pers/" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">policymakers</a>.</li>
             </ol>
-
-            <p><strong>Findings</strong></p>
-            <ul>
-                <li>Organizational network:
-                    <ul class="sub-list">
-                        <li>ECB, IMF, and US Federal Reserve emerge as central hubs.</li>
-                        <li>Regional clusters (e.g., European vs. Asia-Pacific banks) highlight patterns of co-mention and influence.</li>
-                    </ul>
-                </li>
-                <li>Individual network:
-                    <ul class="sub-list">
-                        <li>Prominent leaders (Draghi, Bernanke, Lagarde) occupy bridging positions across clusters, illustrating how personalities drive institutional connectivity.</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <p><strong>Impact</strong></p>
-            <p>This project demonstrates how AI-driven network analysis of communication can uncover hidden structures of influence in global finance. It provides tools for:</p>
-            <ul>
-                <li>Mapping policy interdependence across central banks.</li>
-                <li>Identifying influential individuals and organizations in crisis vs. normal times.</li>
-                <li>Offering a new perspective for both researchers and policymakers on coordination in global financial governance.</li>
-            </ul>
         </div>
     </div>
 </div>
 
-<div id="m4" class="modal" onclick="closeModal('m4')">
-    <div class="modal-content" onclick="event.stopPropagation()">
+<div id="m4" class="modal">
+    <div class="modal-content">
         <span class="close" onclick="closeModal('m4')">&times;</span>
-        
         <div class="modal-body">
-            <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Distance between the ECB and national central banks (1999–2020)</h2>
-                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">Measuring convergence in eurosystem communication</h4>
-                
-                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
-                    The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. In theory, monetary policy is common — but communication may reveal differences in priorities, perspectives, or timing. This project asks: How closely aligned are the communication strategies of the ECB and NCBs over time?
-                </p>
-                <br><br>
-                <img src="project4.jpg" class="modal-header-img" alt="Distance Analysis Project">
+            <div style="text-align: center;">
+                <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Distance between the ECB and national central banks (1999–2020)</h2>
+                <h4 style="font-weight: 400; font-size: 1.3rem; color: #666; margin-bottom: 25px;">Measuring convergence in eurosystem communication</h4>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">How closely aligned are the communication strategies of the ECB and NCBs? This project utilizes text-based distance metrics.</p>
+                <img src="project4.jpg" class="modal-header-img">
             </div>
-
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: Introductions to annual reports of 11 NCBs (1999–2020), manually collected from official sites.</li>
-                <li>Libraries/Methods: Topic modeling (25 <a href="javascript:void(0)" onclick="closeModal('m4'); openModal('m5');" style="color: var(--navy); font-weight: bold; text-decoration: underline;">pre-defined topics</a>), Hellinger distance for text similarity, Tableau for visualization.</li>
+                <li>Data: Introductions to annual reports of 11 NCBs.</li>
+                <li>Methods: Topic modeling (25 <a href="javascript:void(0)" onclick="closeModal('m4'); openModal('m5');" style="color:var(--navy); text-decoration: underline; font-weight: bold;">pre-defined topics</a>), Hellinger distance.</li>
             </ul>
-
             <p><strong>Method</strong></p>
             <ol>
-                <li>Corpus Construction: Compiled introductions from ECB and NCB annual reports. (Portugal excluded due to missing data).</li>
-                <li>Topic Modeling: Represented each text as a distribution of 25 predefined topics (e.g., inflation, financial stability, growth).</li>
-                <li>Distance Calculation: Applied Hellinger distance to measure the similarity between ECB and NCB communication in each year.</li>
-                <li>Visualization: Built an interactive <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/Centralbanksdistance/Distance_ECB" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">Tableau dashboard</a> to show how distances evolved by country and over time.</li>
+                <li>Topic Modeling: Represented each text as a distribution of topics.</li>
+                <li>Distance Calculation: Measured similarity using Hellinger distance.</li>
+                <li>Visualization: Built a <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/Centralbanksdistance/Distance_ECB" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Tableau dashboard</a>.</li>
             </ol>
-
-            <p><strong>Findings</strong></p>
-            <ul>
-                <li>High alignment in crisis periods: ECB and NCBs converged during 2008–2012, reflecting coordinated responses.</li>
-                <li>Divergences post-crisis: Some NCBs (e.g., Greece) displayed greater distance from ECB discourse, linked to national economic challenges.</li>
-                <li>Long-run trend: Overall, ECB and NCB communications became more consistent, though national differences persist.</li>
-            </ul>
-
-            <p><strong>Impact</strong></p>
-            <p>The project illustrates how text-based distance metrics can measure institutional alignment within the Eurosystem. Insights are relevant for:</p>
-            <ul>
-                <li>Assessing the effectiveness of common monetary policy.</li>
-                <li>Detecting gaps between supranational and national communication that may affect credibility.</li>
-                <li>Supporting policymakers in ensuring coherent messaging across the euro area.</li>
-            </ul>
         </div>
     </div>
 </div>
 
-<div id="m5" class="modal" onclick="closeModal('m5')">
-    <div class="modal-content" onclick="event.stopPropagation()">
+<div id="m5" class="modal">
+    <div class="modal-content">
         <span class="close" onclick="closeModal('m5')">&times;</span>
-        
         <div class="modal-body">
-            <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Building blocks of central banks’ communication (1999–2020)</h2>
-                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">Topic modeling of eurosystem annual reports</h4>
-                
-                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
-                    Central banks rely on communication to shape expectations and explain policy choices. But what issues do they emphasize over time, and how do priorities differ across national central banks (NCBs) and the European Central Bank (ECB)? This project investigates the evolution of communication themes in the Eurosystem over two decades.
-                </p>
-                <br><br>
-                <img src="project5.jpg" class="modal-header-img" alt="Building Blocks Project">
+            <div style="text-align: center;">
+                <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Building blocks of central banks’ communication (1999–2020)</h2>
+                <h4 style="font-weight: 400; font-size: 1.3rem; color: #666; margin-bottom: 25px;">Topic modeling of eurosystem annual reports</h4>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central banks shift their focus in response to global and national shocks. This project investigates themes over two decades.</p>
+                <img src="project5.jpg" class="modal-header-img">
             </div>
-
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: Introductions to annual reports of 11 NCBs and the ECB (1999–2020), manually collected from official websites.</li>
-                <li>Libraries: NLTK & spaCy (preprocessing), Gensim (phrase detection & topic modeling).</li>
-                <li>Visualization: <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/CBsCommunication/CentralbanksCommunication" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">Tableau dashboard</a>.</li>
+                <li>Data: Annual reports of 11 NCBs and the ECB.</li>
+                <li>Libraries: Gensim (LDA), spaCy.</li>
+                <li>Visualization: <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/CBsCommunication/CentralbanksCommunication" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Tableau dashboard</a>.</li>
             </ul>
-
-            <p><strong>Method</strong></p>
-            <ol>
-                <li>Corpus Construction: Collected introductions of annual reports for all euro area founding members (plus Greece from 2001). Portugal excluded due to missing data.</li>
-                <li>Preprocessing: Tokenization, lemmatization, and stopword removal; merged smaller paragraphs into comparable text chunks.</li>
-                <li>Topic Modeling: Trained an LDA model (25 topics) on the full corpus to capture recurring themes across time and institutions.</li>
-                <li>Visualization: Built interactive Tableau dashboards showing:
-                    <ul class="sub-list">
-                        <li>Average attention to topics across the Eurosystem.</li>
-                        <li>Topic dynamics for each central bank over time.</li>
-                    </ul>
-                </li>
-            </ol>
-
             <p><strong>Findings</strong></p>
             <ul>
-                <li>Crisis years (2008–2012): Sharp rise in attention to financial stability, sovereign debt, and market support.</li>
-                <li>Post-crisis: Increasing emphasis on growth, and structural reforms.</li>
-                <li>ECB vs NCBs: While overall trends converged, national banks highlighted local issues (e.g., employment in Italy, competitiveness in Spain, fiscal policy in Greece).</li>
-            </ul>
-
-            <p><strong>Impact</strong></p>
-            <p>This project provides a systematic mapping of the building blocks of Eurosystem communication. It highlights how:</p>
-            <ul>
-                <li>Central banks shift their focus in response to global and national shocks.</li>
-                <li>Supranational and national institutions balance common messaging with local priorities.</li>
-                <li>Text mining can serve as a quantitative lens for policy communication analysis.</li>
+                <li>Crisis years (2008–2012): Sharp rise in attention to financial stability and sovereign debt.</li>
+                <li>ECB vs NCBs: Trends converged, but national banks highlighted local issues like employment or fiscal policy.</li>
             </ul>
         </div>
     </div>
@@ -589,11 +284,11 @@
 <script>
     function openModal(id) { document.getElementById(id).style.display = "block"; document.body.style.overflow = "hidden"; }
     function closeModal(id) { document.getElementById(id).style.display = "none"; document.body.style.overflow = "auto"; }
-    window.onclick = function(event) { if (event.target.className === 'modal') { closeModal(event.target.id); } }
+    window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; document.body.style.overflow = "auto"; } }
 </script>
 
 <footer>
-    <p>&copy; 2026 Arina Tsirkuleva | arinatsirkuleva.com</p>
+    <p>&copy; 2026 Arina Tsirkuleva</p>
 </footer>
 
 </body>
