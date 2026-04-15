@@ -170,6 +170,29 @@
 
         
         /* Enhanced Modal */
+        /* This part ensures the full descriptions are HIDDEN by default */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.85); /* Dim the background */
+            overflow-y: auto; 
+        }
+        
+        /* This is the box that pops up */
+        .modal-content { 
+            background: white; 
+            margin: 5% auto; 
+            padding: 40px; 
+            width: 90%; 
+            max-width: 900px; 
+            border-radius: 15px; 
+            position: relative; 
+        }
         .modal-header-img { 
             display: block;      /* This forces the image to its own line */
             margin-top: 50px !important;  /* This pushes the image DOWN */
