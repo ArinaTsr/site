@@ -25,7 +25,7 @@
         }
         header h1 { font-size: 3.5rem; margin-bottom: 5px; color: #333; }
         header h3 { font-size: 1.2rem; font-weight: 400; letter-spacing: 4px; color: #555; margin-top: 0; }
-        
+    
         .container { max-width: 1000px; margin: auto; padding: 20px; }
         
         /* About Section */
@@ -47,7 +47,13 @@
         .p-number { font-size: 2.5rem; color: #333; margin-bottom: 10px; display: block; font-weight: 300; }
         .p-text-box h3 { margin: 0 0 20px 0; color: #333 !important; font-size: 1.8rem; font-weight: 500; line-height: 1.3; }
         .p-description { font-size: 1.1rem; line-height: 1.8; color: #444;  }
-
+        .p-text-box h4 {
+            font-family: inherit;
+            line-height: 1.3;
+            margin-top: 5px;
+            color: #555; /* Soft dark grey */
+            font-size: 1.3rem; /* Sits perfectly between the H3 and the description */
+        }
         /* MODAL POP-UPS */
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; }
         .modal-content { background: white; margin: 4% auto; padding: 50px; width: 90%; max-width: 900px; border-radius: 15px; position: relative; }
@@ -98,7 +104,8 @@
         <section class="project-section" onclick="openModal('m2')">
             <div class="p-image-box"><img src="project2.jpg"></div>
             <div class="p-text-box">
-                <h3>Do Words Move Markets? The Performative Power of ECB Speeches</h3>
+                <h3>Do Words Move Markets?</h3>
+                <h4>The Performative Power of ECB Speeches</h4>
                 <p class="p-description">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
             </div>
         </section>
@@ -125,7 +132,7 @@
         <section class="project-section" onclick="openModal('m5')">
             <div class="p-image-box"><img src="project5.jpg"></div>
             <div class="p-text-box">
-                <h3>“What Do Central Banks Talk About? Mapping 20 Years of Communication”</h3>
+                <h3>What Do Central Banks Talk About? Mapping 20 Years of Communication</h3>
                 <p class="p-description">Central banks rely on communication to shape expectations and explain policy choices. This project investigates the evolution of communication themes in the Eurosystem over two decades.</p>
             </div>
         </section>
