@@ -48,13 +48,13 @@
         .p-text-box h3 { margin: 0 0 20px 0; color: #333 !important; font-size: 1.8rem; font-weight: 500; line-height: 1.3; }
         .p-description { font-size: 1.05rem; line-height: 1.8; color: #444; text-decoration: underline; }
 
-        /* MODAL POP-UPS (HIDDEN BY DEFAULT) */
+        /* MODAL POP-UPS */
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); overflow-y: auto; }
         .modal-content { background: white; margin: 4% auto; padding: 50px; width: 90%; max-width: 900px; border-radius: 15px; position: relative; }
         .modal-header-img { display: block; margin: 40px auto; width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 10px; }
         .close { position: absolute; right: 25px; top: 15px; font-size: 40px; cursor: pointer; color: #aaa; }
         .modal-body p strong { display: block; margin-top: 25px; font-size: 1.2rem; color: #111; }
-        .sub-list { margin-top: 5px; }
+        .sub-list { margin-top: 5px; list-style-type: circle; padding-left: 20px; }
 
         footer { text-align: center; padding: 60px; background: #111; color: #777; margin-top: 100px; }
         @media (max-width: 768px) { .project-section, .project-section:nth-of-type(even) { flex-direction: column !important; gap: 30px; } .p-image-box { max-width: 100%; } }
@@ -102,7 +102,7 @@
             <div class="p-text-box">
                 <span class="p-number">02</span>
                 <h3>Do Words Move Markets? The Performative Power of ECB Speeches</h3>
-                <p class="p-description">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. This project investigates how the performative dimension has evolved.</p>
+                <p class="p-description">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
             </div>
         </section>
         <hr class="editorial-divider">
@@ -112,7 +112,7 @@
             <div class="p-text-box">
                 <span class="p-number">03</span>
                 <h3>Networks of Influence: Central Banks and Key Personalities</h3>
-                <p class="p-description">Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. This project explores how leaders reference each other.</p>
+                <p class="p-description">Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. This project explores how central banks and their leaders reference each other and external organizations, revealing patterns of interaction and co-influence over time.</p>
             </div>
         </section>
         <hr class="editorial-divider">
@@ -122,7 +122,7 @@
             <div class="p-text-box">
                 <span class="p-number">04</span>
                 <h3>Speaking With One Voice? ECB vs National Banks</h3>
-                <p class="p-description">The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. This project asks: How closely aligned are the communication strategies?</p>
+                <p class="p-description">The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. In theory, monetary policy is common — but communication may reveal differences in priorities, perspectives, or timing.</p>
             </div>
         </section>
         <hr class="editorial-divider">
@@ -131,8 +131,8 @@
             <div class="p-image-box"><img src="project5.jpg"></div>
             <div class="p-text-box">
                 <span class="p-number">05</span>
-                <h3>Mapping 20 Years of Central Bank Communication</h3>
-                <p class="p-description">Central banks rely on communication to shape expectations and explain policy choices. This project investigates the evolution of themes in the Eurosystem.</p>
+                <h3>“What Do Central Banks Talk About? Mapping 20 Years of Communication”</h3>
+                <p class="p-description">Central banks rely on communication to shape expectations and explain policy choices. This project investigates the evolution of communication themes in the Eurosystem over two decades.</p>
             </div>
         </section>
     </div>
@@ -150,13 +150,13 @@
             </div>
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: 50,000+ customer reviews scraped from Google Play Store for <a href="https://www.bankingsupervision.europa.eu/ecb/pub/pdf/ssm.listofsupervisedentities202104.en.pdf" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">banks</a> under direct ECB supervision.</li>
+                <li>Data: 50,000+ customer reviews (2010–2022) scraped from Google Play Store for <a href="https://www.bankingsupervision.europa.eu/ecb/pub/pdf/ssm.listofsupervisedentities202104.en.pdf" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">banks</a> under direct ECB supervision.</li>
                 <li>Libraries: google-play-scraper, langdetect, spaCy, NLTK.</li>
                 <li>Visualization: <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/Mobilebankingappreviews/mobile_app" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Tableau</a></li>
             </ul>
             <p><strong>Method</strong></p>
             <ol>
-                <li>Scraping & Language Detection: Collected reviews per bank app. Due to the unavailability of spaCy pipelines for several languages, I excluded some banks. For Greek banks, Greek and English were both used.</li>
+                <li>Scraping & Language Detection: Collected reviews per bank app, detected the dominant review language. Due to the unavailability of spaCy pipelines for several languages (in particular, Latvian, Finnish, and Estonian), I excluded these banks from the analysis. For Greek banks, Greek and English showed up almost equally, so I kept both in the analysis.</li>
                 <li>Preprocessing: Cleaned text, removed stopwords + generic words ("bank", "application").</li>
                 <li>NLP Analysis:
                     <ul class="sub-list">
@@ -164,12 +164,23 @@
                         <li>Counted most frequent 10 nouns + 10 adjectives per star rating (1–5).</li>
                     </ul>
                 </li>
-                <li>Visualization: Built an interactive Tableau dashboard showing sentiment evolution and top criticized aspects.</li>
+                <li>Visualization: Built an interactive Tableau dashboard showing:
+                    <ul class="sub-list">
+                        <li>Sentiment evolution 2010–2022.</li>
+                        <li>Top praised vs criticized app aspects.</li>
+                    </ul>
+                </li>
             </ol>
             <p><strong>Findings</strong></p>
             <ul>
                 <li>Praised: update, ease in making payments, ease of use, intuitive design.</li>
-                <li>Criticized: bugs in updates, security, connection, login issues, speed, lack of personalization.</li>
+                <li>Criticized: bugs in updates, security, connection, login issues, activation problem, speed, lack of personalization.</li>
+            </ul>
+            <p><strong>Impact</strong></p>
+            <p>The project demonstrates how AI/NLP on unstructured customer data can support:</p>
+            <ul>
+                <li>Banks in prioritizing digital strategy investments.</li>
+                <li>Regulators in understanding evolving customer expectations in financial services.</li>
             </ul>
         </div>
     </div>
@@ -182,25 +193,45 @@
             <div style="text-align: center;">
                 <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Performative language of the ECB (1999–2021)</h2>
                 <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">Analyzing modality in central bank communication</h4>
-                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. This project investigates how the performative dimension has evolved across two decades.</p>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. The ECB, initially designed as a technocratic institution, has gradually gained influence through the performative power of its language. A famous example is Mario Draghi’s 2012 pledge to do “whatever it takes”, which stabilized markets without any immediate policy action. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
                 <img src="project2.jpg" class="modal-header-img">
             </div>
-            <p>The European Central Bank (ECB) was originally designed as a technocratic institution. Members of the Executive Board define the ECB’s public voice, constructing the institution’s identity through speeches. I examine how that identity has evolved by focusing on modality.</p>
+            <p>The European Central Bank (ECB) was originally designed as a technocratic institution. The Maastricht Treaty set out the ECB’s formal structure and mandate, yet the ways in which these are exercised have been gradually crafted by the institution’s leaders. Members of the Executive Board not only manage monetary policy but also define the ECB’s public voice. Through their speeches and statements, they construct and project the institution’s identity.</p>
+            <p>I examine how that identity has evolved by focusing on the modality of ECB executives’ communication. In linguistics, modality refers to the speaker’s attitude toward reality or truth. There are several ways to classify modality, but two categories are especially relevant here:</p>
+            <ul>
+                <li>Epistemic modality: expresses the speaker’s stance toward knowledge, belief, or certainty in a proposition.</li>
+                <li>Deontic modality: reflects how the world should be according to norms or expectations.</li>
+            </ul>
             <p><strong>Data & Tools</strong></p>
             <ul>
                 <li>Data: <a href="https://www.ecb.europa.eu/press/key/html/downloads.en.html" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">ECB Speeches Dataset</a> (1999–2021).</li>
-                <li>Libraries: NLTK, spaCy.</li>
+                <li>Libraries: NLTK, spaCy (for preprocessing and modality parsing).</li>
+                <li>Custom Resources: Manually built dictionary of modality markers (epistemic: may, might, will; deontic: must, should, we commit to...).</li>
             </ul>
             <p><strong>Method</strong></p>
             <ol>
-                <li>Preprocessing: Tokenization and lemmatization across multiple languages.</li>
-                <li>Modality Parsing: Identified epistemic modality (beliefs, probabilities) and deontic modality (commitments, obligations).</li>
-                <li>Temporal Analysis: Tracked shifts in modality use over 22 years.</li>
+                <li>Preprocessing: Tokenization, lemmatization, stopword removal across multiple languages.</li>
+                <li>Modality Parsing:
+                    <ul class="sub-list">
+                        <li>Identified epistemic modality (beliefs, predictions, probabilities).</li>
+                        <li>Identified deontic modality (norms, commitments, obligations).</li>
+                        <li>Constructed a custom dictionary of modal expressions and phrases, mapped to spaCy parsing outputs.</li>
+                    </ul>
+                </li>
+                <li>Temporal Analysis: Tracked shifts in modality use over 22 years of ECB communications.</li>
             </ol>
             <p><strong>Findings (work in progress)</strong></p>
             <ul>
-                <li>Crisis periods (2008–2012): Higher frequency of deontic modality signaling a strong intervention stance.</li>
-                <li>The ECB’s communication style has contributed to its institutional empowerment.</li>
+                <li>Crisis periods (2008–2012): Higher frequency of deontic modality (commitments, obligations), signaling strong intervention stance.</li>
+                <li>Post-crisis and integration phases: Growing use of epistemic modality, emphasizing probabilities, scenarios, and market expectations.</li>
+                <li>The ECB’s communication style has contributed to its institutional empowerment, moving from “technocratic” to “performative actor” in European integration.</li>
+            </ul>
+            <p><strong>Impact</strong></p>
+            <p>The project demonstrates how AI/NLP can systematically analyze performativity in policy communication, offering insights into:</p>
+            <ul>
+                <li>How central banks shape market expectations beyond quantitative measures.</li>
+                <li>How linguistic strategies reflect evolving institutional power (Brunnermeier et al., 2016; Chang, 2015; Tortola, 2020).</li>
+                <li>Potential early-warning indicators of market-moving communication.</li>
             </ul>
         </div>
     </div>
@@ -213,20 +244,54 @@
             <div style="text-align: center;">
                 <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Global network of central banks and central bankers (2007–2021)</h2>
                 <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">Entity recognition and network analysis of BIS speech corpus</h4>
-                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central banks are not isolated actors. This project explores how they reference each other and external organizations, revealing patterns of co-influence.</p>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. During financial crises and periods of uncertainty, these networks become especially relevant. This project explores how central banks and their leaders reference each other and external organizations, revealing patterns of interaction and co-influence over time.</p>
                 <img src="project3.jpg" class="modal-header-img">
             </div>
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: <a href="https://www.bis.org/cbspeeches/index.htm" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Central bank speeches</a> from the BIS, scraped via Selenium.</li>
-                <li>Libraries: NetworkX, spaCy (NER), Pyvis.</li>
+                <li>Data: <a href="https://www.bis.org/cbspeeches/index.htm" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Central bank speeches</a> from the Bank for International Settlements (2007–2021), scraped via Selenium.</li>
+                <li>Libraries: spaCy (NER & preprocessing), NetworkX (graph analysis), Louvain method (community detection), Pyvis (interactive visualization).</li>
             </ul>
             <p><strong>Method</strong></p>
             <ol>
-                <li>Named-Entity Recognition (NER): Extracted organizations and individuals.</li>
-                <li>Normalization: Merged coreferences using <a href="https://www.ecb.europa.eu/services/glossary/html/glossa.en.html" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">ECB abbreviations glossary</a>.</li>
-                <li>Community Detection: Applied Louvain method to identify clusters of <a href="https://arinatsr.github.io/cbs_org/" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">institutions</a> and <a href="https://arinatsr.github.io/cbs_pers/" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">policymakers</a>.</li>
+                <li>Named-Entity Recognition (NER): Extracted organizations and individuals mentioned in central bank speeches.</li>
+                <li>Cleaning & Normalization:
+                    <ul class="sub-list">
+                        <li>Removed self-references (e.g., ECB mentioning "ECB").</li>
+                        <li>Merged coreferences (e.g., "Fed", "Federal Reserve System", "US Federal Reserve"): automatically using <a href="https://www.ecb.europa.eu/services/glossary/html/glossa.en.html" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">ECB abbreviations glossary</a> and manually.</li>
+                        <li>Applied a frequency threshold (≥10 mentions).</li>
+                    </ul>
+                </li>
+                <li>Network Construction:
+                    <ul class="sub-list">
+                        <li>Built directed source–target networks: speech source → entity/person mentioned.</li>
+                        <li>Separate networks for organizations and individuals.</li>
+                    </ul>
+                </li>
+                <li>Community Detection: Applied Louvain method to identify clusters of closely connected <a href="https://arinatsr.github.io/cbs_org/" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">institutions</a> and <a href="https://arinatsr.github.io/cbs_pers/" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">policymakers</a>.</li>
+                <li>Visualization: Interactive Pyvis graphs (suggested ForceAtlas2 solver for clarity).</li>
             </ol>
+            <p><strong>Findings</strong></p>
+            <ul>
+                <li>Organizational network:
+                    <ul class="sub-list">
+                        <li>ECB, IMF, and US Federal Reserve emerge as central hubs.</li>
+                        <li>Regional clusters (e.g., European vs. Asia-Pacific banks) highlight patterns of co-mention and influence.</li>
+                    </ul>
+                </li>
+                <li>Individual network:
+                    <ul class="sub-list">
+                        <li>Prominent leaders (Draghi, Bernanke, Lagarde) occupy bridging positions across clusters, illustrating how personalities drive institutional connectivity.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p><strong>Impact</strong></p>
+            <p>This project demonstrates how AI-driven network analysis of communication can uncover hidden structures of influence in global finance. It provides tools for:</p>
+            <ul>
+                <li>Mapping policy interdependence across central banks.</li>
+                <li>Identifying influential individuals and organizations in crisis vs. normal times.</li>
+                <li>Offering a new perspective for both researchers and policymakers on coordination in global financial governance.</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -238,20 +303,34 @@
             <div style="text-align: center;">
                 <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Distance between the ECB and national central banks (1999–2020)</h2>
                 <h4 style="font-weight: 400; font-size: 1.3rem; color: #666; margin-bottom: 25px;">Measuring convergence in eurosystem communication</h4>
-                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">How closely aligned are the communication strategies of the ECB and NCBs? This project utilizes text-based distance metrics.</p>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. In theory, monetary policy is common — but communication may reveal differences in priorities, perspectives, or timing. This project asks: How closely aligned are the communication strategies of the ECB and NCBs over time?</p>
                 <img src="project4.jpg" class="modal-header-img">
             </div>
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: Introductions to annual reports of 11 NCBs.</li>
-                <li>Methods: Topic modeling (25 <a href="javascript:void(0)" onclick="closeModal('m4'); openModal('m5');" style="color:var(--navy); text-decoration: underline; font-weight: bold;">pre-defined topics</a>), Hellinger distance.</li>
+                <li>Data: Introductions to annual reports of 11 NCBs (1999–2020), manually collected from official sites.</li>
+                <li>Libraries/Methods: Topic modeling (25 <a href="javascript:void(0)" onclick="closeModal('m4'); openModal('m5');" style="color:var(--navy); text-decoration: underline; font-weight: bold;">pre-defined topics</a>), Hellinger distance for text similarity, Tableau for visualization.</li>
             </ul>
             <p><strong>Method</strong></p>
             <ol>
-                <li>Topic Modeling: Represented each text as a distribution of topics.</li>
-                <li>Distance Calculation: Measured similarity using Hellinger distance.</li>
-                <li>Visualization: Built a <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/Centralbanksdistance/Distance_ECB" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Tableau dashboard</a>.</li>
+                <li>Corpus Construction: Compiled introductions from ECB and NCB annual reports. (Portugal excluded due to missing data).</li>
+                <li>Topic Modeling: Represented each text as a distribution of 25 predefined topics (e.g., inflation, financial stability, growth).</li>
+                <li>Distance Calculation: Applied Hellinger distance to measure the similarity between ECB and NCB communication in each year.</li>
+                <li>Visualization: Built an interactive <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/Centralbanksdistance/Distance_ECB" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Tableau dashboard</a> to show how distances evolved by country and over time.</li>
             </ol>
+            <p><strong>Findings</strong></p>
+            <ul>
+                <li>High alignment in crisis periods: ECB and NCBs converged during 2008–2012, reflecting coordinated responses.</li>
+                <li>Divergences post-crisis: Some NCBs (e.g., Greece) displayed greater distance from ECB discourse, linked to national economic challenges.</li>
+                <li>Long-run trend: Overall, ECB and NCB communications became more consistent, though national differences persist.</li>
+            </ul>
+            <p><strong>Impact</strong></p>
+            <p>The project illustrates how text-based distance metrics can measure institutional alignment within the Eurosystem. Insights are relevant for:</p>
+            <ul>
+                <li>Assessing the effectiveness of common monetary policy.</li>
+                <li>Detecting gaps between supranational and national communication that may affect credibility.</li>
+                <li>Supporting policymakers in ensuring coherent messaging across the euro area.</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -263,19 +342,39 @@
             <div style="text-align: center;">
                 <h2 style="font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Building blocks of central banks’ communication (1999–2020)</h2>
                 <h4 style="font-weight: 400; font-size: 1.3rem; color: #666; margin-bottom: 25px;">Topic modeling of eurosystem annual reports</h4>
-                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central banks shift their focus in response to global and national shocks. This project investigates themes over two decades.</p>
+                <p style="font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central banks rely on communication to shape expectations and explain policy choices. But what issues do they emphasize over time, and how do priorities differ across national central banks (NCBs) and the European Central Bank (ECB)? This project investigates the evolution of communication themes in the Eurosystem over two decades.</p>
                 <img src="project5.jpg" class="modal-header-img">
             </div>
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: Annual reports of 11 NCBs and the ECB.</li>
-                <li>Libraries: Gensim (LDA), spaCy.</li>
+                <li>Data: Introductions to annual reports of 11 NCBs and the ECB (1999–2020), manually collected from official websites.</li>
+                <li>Libraries: NLTK & spaCy (preprocessing), Gensim (phrase detection & topic modeling).</li>
                 <li>Visualization: <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/CBsCommunication/CentralbanksCommunication" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">Tableau dashboard</a>.</li>
             </ul>
+            <p><strong>Method</strong></p>
+            <ol>
+                <li>Corpus Construction: Collected introductions of annual reports for all euro area founding members (plus Greece from 2001). Portugal excluded due to missing data.</li>
+                <li>Preprocessing: Tokenization, lemmatization, and stopword removal; merged smaller paragraphs into comparable text chunks.</li>
+                <li>Topic Modeling: Trained an LDA model (25 topics) on the full corpus to capture recurring themes across time and institutions.</li>
+                <li>Visualization: Built interactive Tableau dashboards showing:
+                    <ul class="sub-list">
+                        <li>Average attention to topics across the Eurosystem.</li>
+                        <li>Topic dynamics for each central bank over time.</li>
+                    </ul>
+                </li>
+            </ol>
             <p><strong>Findings</strong></p>
             <ul>
-                <li>Crisis years (2008–2012): Sharp rise in attention to financial stability and sovereign debt.</li>
-                <li>ECB vs NCBs: Trends converged, but national banks highlighted local issues like employment or fiscal policy.</li>
+                <li>Crisis years (2008–2012): Sharp rise in attention to financial stability, sovereign debt, and market support.</li>
+                <li>Post-crisis: Increasing emphasis on growth, and structural reforms.</li>
+                <li>ECB vs NCBs: While overall trends converged, national banks highlighted local issues (e.g., employment in Italy, competitiveness in Spain, fiscal policy in Greece).</li>
+            </ul>
+            <p><strong>Impact</strong></p>
+            <p>This project provides a systematic mapping of the building blocks of Eurosystem communication. It highlights how:</p>
+            <ul>
+                <li>Central banks shift their focus in response to global and national shocks.</li>
+                <li>Supranational and national institutions balance common messaging with local priorities.</li>
+                <li>Text mining can serve as a quantitative lens for policy communication analysis.</li>
             </ul>
         </div>
     </div>
