@@ -61,7 +61,12 @@
         }
         .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--gold); }
         .project-img { width: 100%; height: 200px; object-fit: cover; }
-        .project-info { padding: 20px; }
+        /* Change main page card titles to Dark Grey */
+        .project-info h3 { 
+            margin: 0; 
+            color: #333 !important; /* Forces the color to Dark Grey */
+            font-size: 1.1rem; 
+        }
         .project-info h3 { margin: 0; color: var(--navy); font-size: 1.1rem; }
         .project-abstract { 
             text-align: center; 
@@ -76,7 +81,7 @@
             color: #333 !important; 
             text-transform: none;
             font-weight: 400;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
         }
         /* Enhanced Modal */
@@ -154,10 +159,10 @@
         
         <div class="modal-body">
             <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 400; font-size: 2.2rem; margin-bottom: 10px;">Customer experience with mobile banking apps (2010–2022)</h2>
-                <h4 style="text-transform: none; font-weight: 700; font-size: 1.1rem; color: #000; margin-bottom: 25px;">European significant banks — Google play reviews analysis</h4>
+                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Customer experience with mobile banking apps (2010–2022)</h2>
+                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">European significant banks — Google play reviews analysis</h4>
                 
-                <p class="project-abstract" style="text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
+                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
                     How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.
                 </p>
                 <img src="project1.jpg" class="modal-header-img" alt="Customer Experience Project">
@@ -165,7 +170,7 @@
 
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: 50,000+ customer reviews (2010–2022) scraped from Google Play Store for <a href="https://www.bankingsupervision.europa.eu/ecb/pub/pdf/ssm.listofsupervisedentities202104.en.pdf?d62ded18a8c05df230e1a8132ead3a1b" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">Tableau</a></li> under direct ECB supervision.</li>
+                <li>Data: 50,000+ customer reviews (2010–2022) scraped from Google Play Store for <a href="https://www.bankingsupervision.europa.eu/ecb/pub/pdf/ssm.listofsupervisedentities202104.en.pdf?d62ded18a8c05df230e1a8132ead3a1b" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">banks</a></li> under direct ECB supervision.</li>
                 <li>Libraries: google-play-scraper, langdetect, spaCy, NLTK.</li>
                 <li>Visualization: <a href="https://public.tableau.com/app/profile/arina.tsirkuleva/viz/Mobilebankingappreviews/mobile_app" target="_blank" style="color: var(--navy); font-weight: bold; text-decoration: underline;">Tableau</a></li>
             </ul>
@@ -210,10 +215,10 @@
         
         <div class="modal-body">
             <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 400; font-size: 2.2rem; margin-bottom: 10px;">Performative language of the ECB (1999–2021)</h2>
-                <h4 style="text-transform: none; font-weight: 700; font-size: 1.1rem; color: #000; margin-bottom: 25px;">Analyzing modality in central bank communication</h4>
+                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Performative language of the ECB (1999–2021)</h2>
+                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">Analyzing modality in central bank communication</h4>
                 
-                <p class="project-abstract" style="text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
+                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
                     Central bank communication is not only descriptive — it can actively shape market expectations and political integration. The ECB, initially designed as a technocratic institution, has gradually gained influence through the performative power of its language. A famous example is Mario Draghi’s 2012 pledge to do “whatever it takes”, which stabilized markets without any immediate policy action. This project investigates how the performative dimension of ECB communication has evolved across two decades.
                 </p>
                 <img src="project2.jpg" class="modal-header-img" alt="Performative Language Project">
@@ -271,10 +276,10 @@
         
         <div class="modal-body">
             <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 400; font-size: 2.2rem; margin-bottom: 10px;">Global network of central banks and central bankers (2007–2021)</h2>
-                <h4 style="text-transform: none; font-weight: 700; font-size: 1.1rem; color: #000; margin-bottom: 25px;">Entity recognition and network analysis of BIS speech corpus</h4>
+                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Global network of central banks and central bankers (2007–2021)</h2>
+                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">Entity recognition and network analysis of BIS speech corpus</h4>
                 
-                <p class="project-abstract" style="text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
+                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
                     Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. During financial crises and periods of uncertainty, these networks become especially relevant. This project explores how central banks and their leaders reference each other and external organizations, revealing patterns of interaction and co-influence over time.
                 </p>
                 <img src="project3.jpg" class="modal-header-img" alt="Global Network Project">
@@ -338,10 +343,10 @@
         
         <div class="modal-body">
             <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 400; font-size: 2.2rem; margin-bottom: 10px;">Distance between the ECB and national central banks (1999–2020)</h2>
-                <h4 style="text-transform: none; font-weight: 700; font-size: 1.1rem; color: #000; margin-bottom: 25px;">Measuring convergence in eurosystem communication</h4>
+                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Distance between the ECB and national central banks (1999–2020)</h2>
+                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">Measuring convergence in eurosystem communication</h4>
                 
-                <p class="project-abstract" style="text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
+                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
                     The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. In theory, monetary policy is common — but communication may reveal differences in priorities, perspectives, or timing. This project asks: How closely aligned are the communication strategies of the ECB and NCBs over time?
                 </p>
                 <img src="project4.jpg" class="modal-header-img" alt="Distance Analysis Project">
@@ -385,10 +390,10 @@
         
         <div class="modal-body">
             <div class="project-header" style="text-align: center; margin-bottom: 30px;">
-                <h2 style="text-transform: none; font-weight: 400; font-size: 2.2rem; margin-bottom: 10px;">Building blocks of central banks’ communication (1999–2020)</h2>
-                <h4 style="text-transform: none; font-weight: 700; font-size: 1.1rem; color: #000; margin-bottom: 25px;">Topic modeling of eurosystem annual reports</h4>
+                <h2 style="text-transform: none; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">Building blocks of central banks’ communication (1999–2020)</h2>
+                <h4 style="text-transform: none; font-weight: 400; font-size: 1.3rem; color: #000; margin-bottom: 25px;">Topic modeling of eurosystem annual reports</h4>
                 
-                <p class="project-abstract" style="text-align: center; font-size: 1.3rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
+                <p class="project-abstract" style="text-align: center; font-size: 1.1rem; font-weight: 300; max-width: 800px; margin: 0 auto; line-height: 1.6; color: #444;">
                     Central banks rely on communication to shape expectations and explain policy choices. But what issues do they emphasize over time, and how do priorities differ across national central banks (NCBs) and the European Central Bank (ECB)? This project investigates the evolution of communication themes in the Eurosystem over two decades.
                 </p>
                 <img src="project5.jpg" class="modal-header-img" alt="Building Blocks Project">
