@@ -85,7 +85,7 @@
         <img src="profile.jpg" alt="Arina" class="profile-pic">
         <div class="about-text">
             <p>Curiosity drives my work as a researcher. I enjoy uncovering unexpected data sources and turning them into fresh insights. My goal is to transform these findings into meaningful stories that help us better understand the world.</p>
-            <p>Language is at the heart of my passion — it tells powerful stories about how we connect and interact. With NLP evolving at lightning speed, I’m always learning and experimenting.</p>
+            <p>Language is at the heart of my passion, because it tells powerful stories about how we connect and interact. With NLP evolving at lightning speed, I’m always learning and experimenting.</p>
         </div>
     </section>
 
@@ -118,7 +118,7 @@
             <div class="p-text-box">
                 <h3>Do Words Move Markets?</h3>
                 <h4>The Performative Power of ECB Speeches</h4>
-                <p class="p-description">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
+                <p class="p-description">Central bank communication is not only descriptive but it can actively shape market expectations and political integration. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
             </div>
         </section>
         <hr class="editorial-divider">
@@ -128,7 +128,7 @@
             <div class="p-text-box">
                 <h3>Networks of Influence</h3>
                 <h4>Central Banks and Key Personalities</h4>
-                <p class="p-description">Central banks are not isolated actors — their communication reflects global connections, influence, and coordination. This project explores how central banks and their leaders reference each other and external organizations, revealing patterns of interaction and co-influence over time.</p>
+                <p class="p-description">Central banks are not isolated actors, their communication reflects global connections, influence, and coordination. This project explores how central banks and their leaders reference each other and external organizations, revealing patterns of interaction and co-influence over time.</p>
             </div>
         </section>
         <hr class="editorial-divider">
@@ -138,7 +138,7 @@
             <div class="p-text-box">
                 <h3>Speaking With One Voice?</h3>
                 <h4>ECB vs National Banks</h4>
-                <p class="p-description">The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. In theory, monetary policy is common — but communication may reveal differences in priorities, perspectives, or timing.</p>
+                <p class="p-description">The Eurosystem combines the ECB and the national central banks (NCBs) of euro-adopting countries. In theory, monetary policy is common but communication may reveal differences in priorities, perspectives, or timing.</p>
             </div>
         </section>
         <hr class="editorial-divider">
@@ -170,29 +170,20 @@
 
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: 20,365 central bank speeches from <a href="https://www.bis.org/cbspeeches/index.htm" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">BIS</a> · 130 institutions · 1,003 speakers · 1997–2024</li>
+                <li>Data: 20,365 central bank speeches from <a href="https://www.bis.org/cbspeeches/index.htm" target="_blank" style="color:var(--navy); text-decoration: underline; font-weight: bold;">BIS</a> · 130 institutions · 1,003 speakers · 1997–2026</li>
                 <li>Embeddings: HuggingFace bge-base-en-v1.5 · 768 dimensions · 101,732 chunks</li>
-                <li>Vector store: Pinecone (cloud) — migrated from ChromaDB (local)</li>
+                <li>Vector store: Pinecone (cloud)</li>
                 <li>LLM: Google Gemini 2.5 Flash</li>
                 <li>Framework: LlamaIndex · Streamlit</li>
-                <li>Institution metadata: Gemini batch classification of 1,003 authors + description-based gap filling (99.99% coverage)</li>
             </ul>
 
             <p><strong>Method</strong></p>
             <ol>
                 <li>Data pipeline: loaded 20,365 speeches, filtered short texts, built institution column via Gemini batch classification + fuzzy matching + description fallback.</li>
-                <li>Indexing: chunked speeches (chunk_size=1024, overlap=50), embedded with bge-base, stored 101,732 vectors in ChromaDB locally, migrated to Pinecone for cloud deployment.</li>
-                <li>Query routing: 5 routes — temporal, institution, institutional comparative, temporal comparative, full mix — detected via Gemini (institutions) and rapidfuzz (authors).</li>
-                <li>Retrieval: institution-aware retrieval with separate queries per institution to overcome embedding bias; author filtering via metadata.</li>
-                <li>Generation: 5 prompt templates with Chain-of-Thought reasoning, concise 3-5 sentence outputs.</li>
+                <li>Indexing: chunked speeches (chunk_size=1024, overlap=50), embedded with bge-base, stored 101,732 vectors in Pinecone.</li>
+                <li>Query routing: 5 routes temporal, institution, institutional comparative, temporal comparative, full mix.</li>
+                <li>Generation: 5 prompt templates with Chain-of-Thought reasoning.</li>
             </ol>
-
-            <p><strong>Key engineering decisions</strong></p>
-            <ul>
-                <li>Separate retrieval queries per institution solved ECB-bias in embedding space (252 ECB vs 1 Fed chunk in top-300 candidates with single query).</li>
-                <li>Gemini used for semantic institution extraction; rapidfuzz for author fuzzy matching — different tools for different problems.</li>
-                <li>ChromaDB (local, 3.35GB) → Pinecone (cloud, 296MB vectors) migration enabled deployment without GitHub file size limits.</li>
-            </ul>
 
             <p><strong>Example questions</strong></p>
             <ul>
@@ -211,7 +202,7 @@
         <div class="modal-body">
             <div style="text-align: center;">
                 <h2 style="font-weight: 700; font-size: 1.5rem; margin-bottom: 10px;">Customer experience with mobile banking apps (2010–2022)</h2>
-                <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">European significant banks — Google play reviews analysis</h4>
+                <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">European significant banks. Google play reviews analysis</h4>
                 <p style="font-size: 1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">How do customers experience mobile banking apps, and what aspects of app performance drive satisfaction or frustration? Traditional surveys capture limited feedback, but unstructured customer reviews offer rich insights into users’ priorities.</p>
                 <img src="project1.jpg" class="modal-header-img">
             </div>
@@ -260,7 +251,7 @@
             <div style="text-align: center;">
                 <h2 style="font-weight: 700; font-size: 1.5rem; margin-bottom: 10px;">Performative language of the ECB (1999–2021)</h2>
                 <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">Analyzing modality in central bank communication</h4>
-                <p style="font-size: 1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central bank communication is not only descriptive — it can actively shape market expectations and political integration. The ECB, initially designed as a technocratic institution, has gradually gained influence through the performative power of its language. A famous example is Mario Draghi’s 2012 pledge to do “whatever it takes”, which stabilized markets without any immediate policy action. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
+                <p style="font-size: 1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Central bank communication is not only descriptive but it can actively shape market expectations and political integration. The ECB, initially designed as a technocratic institution, has gradually gained influence through the performative power of its language. A famous example is Mario Draghi’s 2012 pledge to do “whatever it takes”, which stabilized markets without any immediate policy action. This project investigates how the performative dimension of ECB communication has evolved across two decades.</p>
                 <img src="project2.jpg" class="modal-header-img">
             </div>
             <p>The European Central Bank (ECB) was originally designed as a technocratic institution. The Maastricht Treaty set out the ECB’s formal structure and mandate, yet the ways in which these are exercised have been gradually crafted by the institution’s leaders. Members of the Executive Board not only manage monetary policy but also define the ECB’s public voice. Through their speeches and statements, they construct and project the institution’s identity.</p>
