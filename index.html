@@ -114,7 +114,7 @@
         <section class="project-section" onclick="openModal('m7')">
             <div class="p-image-box"><img src="project7.jpg"></div>
             <div class="p-text-box">
-                <h3>Italy's Banking App Divide<</h3>
+                <h3>Italy's Banking App Divide</h3>
                 <h4>Competitive benchmarking of Italian banks through Google Play reviews · 2011–2025</h4>
                 <p class="p-description">Digital-first banks score a full rating point above large traditional incumbents.<br>
   400,000+ reviews across 20 Italian banks reveal who is winning the digital customer
@@ -191,15 +191,15 @@
             <div style="text-align: center;">
                 <h2 style="font-weight: 700; font-size: 1.5rem; margin-bottom: 10px;">Italy's Banking App Divide</h2>
                 <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">Competitive benchmarking of Italian banks · Google Play · 2011–2025</h4>
-                <p style="font-size: 1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Public review data can serve as a real-time competitive intelligence tool for digital banking teams. The project is designed as the first layer of a two-part analysis: descriptive benchmarking now, NLP-based complaint and praise classification next.</p>
+                <p style="font-size: 1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Public review data can serve as a real-time competitive intelligence tool for digital banking teams. <br>The project is designed as the first layer of a two-part analysis: descriptive benchmarking now, NLP analysis in next project. </p>
 
             </div>
 
             <p><strong>Data & Tools</strong></p>
             <ul>
-                <li>Data: 400,000+ Google Play reviews (2011–2025) · 20 Italian banks · scraped via google-play-scraper</li>
-                <li>Bank universe: cross-referenced against <a href="https://www.bankingsupervision.europa.eu/ecb/pub/pdf/list_sse_lsi_151230.en.pdf">ECB Significant Institutions list</a> (SSM, 2015 anchor)</li>
-                <li>Libraries: pandas, matplotlib, statsmodels</li>
+                <li>Data: 400,000+ Google Play reviews (2011–2025) · 20 Italian banks </li>
+                <li>Bank universe: cross-referenced against <a href="https://www.bankingsupervision.europa.eu/ecb/pub/pdf/list_sse_lsi_151230.en.pdf">ECB Significant Institutions list</a></li>
+                <li>Libraries: google-play-scraper, pandas, matplotlib</li>
                 <li>Categories: Large Traditional · Digital-first · Bancassurance · Mid-size Commercial · Consumer Credit · Absorbed</li>
             </ul>
 
@@ -230,27 +230,37 @@
             
             <h3>The Reply Paradox</h3>
             
+
+
             <p>
-              FinecoBank has the highest average score in the dataset with 4.47 stars, yet has never
-              publicly responded to a single review across 15 years and 53,000 ratings. Banca Sella
-              replies to nearly 100% of reviews and scores 4.28. Both approaches produce high ratings.
-              A lagged regression with bank and year fixed effects puts a number on it: a 10 percentage
-              point increase in reply rate is associated with a 0.036 point decrease in average score
-              the following year (β = −0.36, p = 0.06, R² = 0.41). Banks that reply most are managing
-              a high volume of complaints, so the reply rate is a symptom of dissatisfaction, not a cure
-              for it.
+            The aggregate reply rate across all banks is 43%, hence fewer than half of all reviews receive any response. 
+            But there is a wide spectrum of strategies. 
+            Mid-size commercial banks (Banca Sella, Credem, ICCREA) have been the most consistent responders, reaching 94% reply rates in 2020 and holding above 90% since. 
+            Challenger banks sit at the opposite extreme — near 0% throughout the entire observation period. 
+            Large traditional banks improved sharply around 2020, e.g., UniCredit jumped from 17% in 2019 to 95%+ in 2020 in a single year, suggesting a centralized strategic decision rather than organic improvement.
+            <img src="reply_rate_trend_final.png" alt="Reply rate by category over time" class="modal-header-img">
             </p>
+            <p>
+              Interesting, that FinecoBank has the highest average score in the dataset with 4.47 stars, yet has never
+              publicly responded to a single review across 15 years and 53,000 ratings. Banca Sella
+              replies to nearly 100% of reviews and scores 4.28. Both seems to be viable strategies. 
+              Yet, to understand what works and for which bank we need to the language of the reviews.
             
-            <img src="reply_rate_vs_score_final.png" alt="Reply rate vs average score">
-            <img src="reply_rate_trend_final.png" alt="Reply rate by category over time">
-            <img src="reply_by_score_final.png" alt="Reply rate by star rating">
-            
+             <img src="reply_rate_vs_score_final.png" alt="Reply rate vs average score" class="modal-header-img">
+
+              A preliminary analysis with lagged regression (bank and year fixed effects) shows that a 10 percentage
+              point increase in reply rate is associated with a 0.036 point decrease in average score
+              the following year (β = −0.36, p = 0.06, R² = 0.41). Hence, banks that reply most are managing
+              a high volume of complaints, so the reply rate is a consequence of dissatisfaction, rather than solution.
+            </p>
             <p>
               The breakdown by star rating shows how banks use the reply function: across all categories,
               1-star reviews receive higher response rates than 5-star reviews. Review management in
               Italian banking is complaint handling, not customer engagement. 
+             <img src="reply_by_score_final.png" alt="Reply rate by star rating" class="modal-header-img">
+
               A text analysis of what banks actually write in their replies, and whether content differs between high and
-              low-performing banks — is planned as part of the NLP extension of this project.
+              low-performing banks is planned as part of the NLP extension of this project.
             </p>
         </div>
     </div>
