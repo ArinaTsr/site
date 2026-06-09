@@ -116,7 +116,7 @@
             <div class="p-text-box">
                 <h3>Italy's Banking App Divide<</h3>
                 <h4>Competitive benchmarking of Italian banks through Google Play reviews · 2011–2025</h4>
-                <p class="p-description">Digital-first banks score a full rating point above large traditional incumbents.
+                <p class="p-description">Digital-first banks score a full rating point above large traditional incumbents.<br>
   400,000+ reviews across 20 Italian banks reveal who is winning the digital customer
   experience race, and what the reply rate paradox says about how banks respond.</p>
             </div>
@@ -191,8 +191,8 @@
             <div style="text-align: center;">
                 <h2 style="font-weight: 700; font-size: 1.5rem; margin-bottom: 10px;">Italy's Banking App Divide</h2>
                 <h4 style="font-weight: 400; font-size: 1.1rem; color: #666; margin-bottom: 25px;">Competitive benchmarking of Italian banks · Google Play · 2011–2025</h4>
-                <p style="font-size: 1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">A Retrieval-Augmented Generation (RAG) chatbot that searches and answers questions over 20,000+ central bank speeches. The tool automatically detects institutions, authors and time periods from natural language questions and routes them to the appropriate analytical prompt.</p>
-                <img src="project7.jpg" class="modal-header-img">
+                <p style="font-size: 1rem; font-weight: 300; max-width: 800px; margin: 0 auto; color: #444;">Public review data can serve as a real-time competitive intelligence tool for digital banking teams. The project is designed as the first layer of a two-part analysis: descriptive benchmarking now, NLP-based complaint and praise classification next.</p>
+
             </div>
 
             <p><strong>Data & Tools</strong></p>
@@ -203,36 +203,29 @@
                 <li>Categories: Large Traditional · Digital-first · Bancassurance · Mid-size Commercial · Consumer Credit · Absorbed</li>
             </ul>
 
-            <p><strong>Method</strong></p>
-            <ol>
-                <li>Scraping: two-pass scrape (Sort.NEWEST + Sort.MOST_RELEVANT), merged on reviewID to remove duplicates.</li>
-                <li>Cleaning: removed banks below volume threshold, excluded partial year 2026, reconstructed reply flag from replyContent.</li>
-                <li>Categorisation: 20 banks assigned to 6 categories based on business model and ownership structure.</li>
-            </ol>
-
             <h3>The Rating Gap: Traditional vs Digital</h3>
 
             <p>
               Digital-first banks average 4.24 stars on Google Play. Italy's six large traditional
-              incumbents average 3.42. That gap opened around 2016, when PSD2 forced open banking
-              onto the agenda, and has not closed since. In 2020, COVID pushed millions of first-time
-              users onto traditional banking apps. Scores briefly recovered: 5-star reviews peaked at
-              53% that year. By 2022 they had collapsed back, and by 2024 large traditional banks
-              averaged 2.92, below the midpoint of the scale, five years running.
-            </p>
-            
-            <img src="digital_vs_traditional_final.png" alt="Score and volume over time" class="modal-header-img">
+              incumbents average 3.42. 
             <img src="score_by_category_v4.png" alt="Average score by category" class="modal-header-img">
-            <img src="rating_polarity_final.png" alt="Rating polarity by category" class="modal-header-img">
+
+             That gap opened around 2016, when PSD2 forced open banking onto the agenda, and has not closed since: digital-first banks held their scores consistently above 4.0, while large traditional banks moved in the opposite direction. 
+            <img src="digital_vs_traditional_final.png" alt="Score and volume over time" class="modal-header-img">
+  
+              In 2020, COVID pushed millions of first-time users onto traditional banking apps. Scores briefly recovered: 5-star reviews peaked at
+              53% that year. 
             <img src="covid_rating_decomposition.png" alt="COVID rating decomposition" class="modal-header-img">
-            
+            </p>
+                        
             <p>
               The polarity chart makes the structural difference concrete. Among digital-first reviews,
-              67% are 5-star and 11% are negative. Among large traditional banks, 34% are negative, i.e.,
+              84% are positive and 11% are negative. Among large traditional banks, 34% are negative, i.e.,
               one in three customers who wrote a review was dissatisfied enough to say so. The two
-              absorbed banks in the dataset, UBI Banca and Banca Carige, both ECB-supervised
-              institutions taken over in 2021 and 2022 consequently, averaged 3.67 before disappearing from the
-              market. 
+              absorbed banks in the dataset, UBI Banca and Banca Carige taken over in 2021 and 2022 consequently, 
+             averaged 3.92 before disappearing from the market. 
+             <img src="rating_polarity_final.png" alt="Rating polarity by category" class="modal-header-img">
+
             </p>
             
             <h3>The Reply Paradox</h3>
